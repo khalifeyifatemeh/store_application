@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/id_search"
+        android:actionViewClass="android.support.v7.widget.SearchView"
+        android:checkable="false"
+        android:checked="false"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_search1"
+        android:orderInCategory="100"
+        android:title="جست و جو"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:title="ورود و ثبت نام"
+        android:id="@+id/id_vorud"
+        android:orderInCategory="101"
+        android:showAsAction="never"
+        />
+    <item
+        android:title="خانه"
+        android:id="@+id/id_home"
+        android:orderInCategory="102"
+        android:showAsAction="never"
+        />
+    <item
+        android:title="لیست دسته بندی محصولات"
+        android:id="@+id/id_category"
+        android:orderInCategory="103"
+        android:showAsAction="never"
+        />
+    <item
+        android:id="@+id/id_sabad"
+        android:actionViewClass="android.support.v7.widget.SearchView"
+        android:checkable="false"
+        android:checked="false"
+        android:enabled="true"
+        android:icon="@drawable/ic_action_basket"
+        android:orderInCategory="104"
+        android:showAsAction="always"
+        android:title="سبد خرید"
+        android:visible="true"
+        app:showAsAction="always" />
+    <!-- new sabad -->
+    <item
+        android:id="@+id/id_sabad2"
+        android:actionViewClass="android.support.v7.widget.SearchView"
+        android:orderInCategory="108"
+        android:showAsAction="never"
+        android:title="سبد خرید"
+        />
+    <item
+        android:title="یشنهاد ویژه"
+        android:id="@+id/id_vizheh"
+        android:orderInCategory="105"
+        android:showAsAction="never"
+        />
+    <item
+        android:title="سوالات متداول"
+        android:id="@+id/id_soal"
+        android:orderInCategory="106"
+        android:showAsAction="never"
+        />
+    <item
+        android:title="درباره ما"
+        android:id="@+id/id_about"
+        android:orderInCategory="107"
+        android:showAsAction="never"
+        />
+</menu>
+

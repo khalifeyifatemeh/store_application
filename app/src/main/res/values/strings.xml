@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">moblplus</string>
+        <color name="titlebackgroundcolor">#FF0000</color>
+        <color name="titletextcolor">#ffffff</color>
+</resources>
