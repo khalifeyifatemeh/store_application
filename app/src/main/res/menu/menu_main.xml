@@ -53,7 +53,7 @@
         android:title="سبد خرید"
         />
     <item
-        android:title="یشنهاد ویژه"
+        android:title="پیشنهاد ویژه"
         android:id="@+id/id_vizheh"
         android:orderInCategory="105"
         android:showAsAction="never"

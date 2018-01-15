@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">moblplus</string>
-        <color name="titlebackgroundcolor">#FF0000</color>
-        <color name="titletextcolor">#ffffff</color>
+    <color name="titlebackgroundcolor">#FF0000</color>
+    <color name="titletextcolor">#ffffff</color>
+    <string name="about_us">مبل پلاس ، طراحی و ساخت مبلمان اداری و منازل با طرح های ترکیه ، ایتالیایی ، ایرانی و برزیلی</string>
+    <string name="soal1">چرا در مبل پلاس حساب کاربری بسازم؟</string>
+    <string name="soal2">چگونه خرید خود را پیگیری کنم؟</string>
+    <string name="javab1">برای خرید و استفاده از طرح های تشویقی نیاز دارید حساب کاربری داشته باشید تا اطلاعات و خریدهای شما ثبت شود.</string>
+    <string name="javab2"> با استفاده از کدرهگیری که هنگام پرداخت به شما داده میشود.</string>
+
+
 </resources>
