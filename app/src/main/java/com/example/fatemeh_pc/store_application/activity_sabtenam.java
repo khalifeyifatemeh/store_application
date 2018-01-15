@@ -19,24 +19,11 @@ import android.widget.RelativeLayout;
 import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
-
-public class vorud_activity extends AppCompatActivity {
+public class activity_sabtenam extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vorud_activity);
-
-
-        Button b = (Button) findViewById(R.id.id_btn_signup);
-
-        b.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                Intent next = new Intent(vorud_activity.this, activity_sabtenam.class);
-                startActivity(next);
-            }
-        });
+        setContentView(R.layout.activity_sabtenam);
     }
 }

@@ -18,19 +18,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".soal_activity"
+        <activity
+            android:name=".soal_activity"
             android:label="سوالات متداول" />
-        <activity android:name=".vorud_activity"
-            android:label="ورود"/>
-        <activity android:name=".about_activity"
+    <activity
+            android:name=".vorud_activity"
+            android:label="ورود" />
+        <activity
+            android:name=".about_activity"
             android:label="درباره ما" />
-        <activity android:name=".category_activity"
-            android:label="دسته بندی محصولات"/>
-        <activity android:name=".sabad_activity"
-            android:label="سبد خرید"/>
-        <activity android:name=".vizheh_activity"
-            android:label="پیشنهاد ویژه مبل پلاس"/>
-        <activity android:name=".search_activity"></activity>
+        <activity
+            android:name=".category_activity"
+            android:label="دسته بندی محصولات" />
+        <activity
+            android:name=".sabad_activity"
+            android:label="سبد خرید" />
+        <activity
+            android:name=".vizheh_activity"
+            android:label="پیشنهاد ویژه مبل پلاس" />
+        <activity android:name=".search_activity"
+            android:label="جست و جو"/>
+        <activity android:name=".activity_sabtenam"
+            android:label="ثبت نام در مبل پلاس"></activity>
     </application>
 
 </manifest>

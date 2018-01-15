@@ -12,6 +12,7 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="89dp">
     <LinearLayout
+        android:id="@+id/id_about_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
