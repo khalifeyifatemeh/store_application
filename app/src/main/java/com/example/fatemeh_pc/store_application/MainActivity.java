@@ -21,15 +21,7 @@ import android.graphics.Color;
 import android.widget.LinearLayout;
 
 
-
-
-
-
-
-
 public class MainActivity extends AppCompatActivity {
-
-
 
     private static ImageView imgview;
 
@@ -97,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-
     }
-
-
 }
 

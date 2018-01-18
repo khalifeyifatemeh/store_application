@@ -14,7 +14,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
         <EditText
+            android:id="@+id/id_editText_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone|textEmailAddress"
@@ -24,18 +26,19 @@
             android:padding="10dp"
             android:ems="20"
             android:layout_marginTop="14dp"
-            android:id="@+id/id_editText_phone"
             android:background="@color/colorAccent"
             android:layout_below="@+id/textView"
             android:hint="شماره موبایل یا ایمیل"
             android:layout_centerHorizontal="true"
-        android:clickable="true"
+            android:clickable="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            />
 
         <EditText
+            android:id="@+id/id_editText_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -45,35 +48,39 @@
             android:padding="10dp"
             android:ems="10"
             android:layout_marginTop="14dp"
-            android:id="@+id/id_editText_password"
             android:layout_centerHorizontal="true"
             android:background="@color/colorAccent"
             android:layout_below="@+id/id_editText_phone"
             android:clickable="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
-    <Button
-        android:text="ورود به مبل پلاس"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/id_editText_password"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="19dp"
-        android:id="@+id/id_btn_vorud"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-    <Button
-        android:text="ثبت نام در مبل پلاس"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/id_btn_vorud"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:id="@+id/id_btn_signup"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+            android:layout_alignParentEnd="true"
+            />
+
+        <Button
+            android:id="@+id/id_btn_signin"
+            android:text="ورود به مبل پلاس"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_editText_password"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <Button
+            android:id="@+id/id_btn_gotosignup"
+            android:text="ثبت نام در مبل پلاس"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_btn_vorud"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
 
     </LinearLayout>
 

@@ -21,7 +21,7 @@
         <activity
             android:name=".soal_activity"
             android:label="سوالات متداول" />
-    <activity
+        <activity
             android:name=".vorud_activity"
             android:label="ورود" />
         <activity
@@ -36,10 +36,15 @@
         <activity
             android:name=".vizheh_activity"
             android:label="پیشنهاد ویژه مبل پلاس" />
-        <activity android:name=".search_activity"
-            android:label="جست و جو"/>
-        <activity android:name=".activity_sabtenam"
-            android:label="ثبت نام در مبل پلاس"></activity>
+        <activity
+            android:name=".search_activity"
+            android:label="جست و جو" />
+        <activity
+            android:name=".activity_sabtenam"
+            android:label="ثبت نام در مبل پلاس" />
+        <activity android:name=".addfurniture_activity"
+            android:label="افزودن مبل">
+        </activity>
     </application>
 
 </manifest>
