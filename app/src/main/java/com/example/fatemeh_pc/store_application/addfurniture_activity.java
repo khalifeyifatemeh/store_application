@@ -29,42 +29,62 @@ public class addfurniture_activity extends AppCompatActivity {
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                       int position, long id) {
-                Toast.makeText(addfurniture_activity.this,"Entekhab shoma: " + furnitur_code[position],Toast.LENGTH_SHORT).show();
+            public void onItemSelected(AdapterView<?> arg0, View arg1,int position, long id) {
+             Toast.makeText(addfurniture_activity.this, "Entekhab shoma: " + furnitur_code[position], Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
+        });
+
+        EditText editfid         = (EditText) findViewById(R.id.id_editText_fid);
+        EditText editfname       = (EditText) findViewById(R.id.id_editText_fname);
+        EditText editftype       = (EditText) findViewById(R.id.id_editText_ftype);
+        EditText editfpirce      = (EditText) findViewById(R.id.id_editText_fprice);
+        EditText editfcolor      = (EditText) findViewById(R.id.id_editText_fcolor);
+        EditText editffabric     = (EditText) findViewById(R.id.id_editText_ffabric);
+        EditText editfwood       = (EditText) findViewById(R.id.id_editText_fwood);
+        EditText editfcount      = (EditText) findViewById(R.id.id_editText_fcount);
+        EditText editfkosan      = (EditText) findViewById(R.id.id_editText_fkosan);
+        EditText editfexist      = (EditText) findViewById(R.id.id_editText_fexist);
+        EditText editfimage      = (EditText) findViewById(R.id.id_editText_fimage);
+        Button btnaddimage       = (Button)   findViewById(R.id.id_btn_addimage);
+        Button btnaddfurniture   = (Button)   findViewById(R.id.id_btn_addfurniture);
+        Button btneditfurniture  = (Button)   findViewById(R.id.id_btn_editfurniture);
+        Button btndeletfurniture = (Button)   findViewById(R.id.id_btn_deletefurniture);
 
 
-
-
-
-
-
-            EditText editfid        = (EditText) findViewById(R.id.id_editText_fid);
-        EditText editfname      = (EditText) findViewById(R.id.id_editText_fname);
-        EditText editftype      = (EditText) findViewById(R.id.id_editText_ftype);
-        EditText editfpirce     = (EditText) findViewById(R.id.id_editText_fprice);
-        EditText editfcolor     = (EditText) findViewById(R.id.id_editText_fcolor);
-        EditText editffabric    = (EditText) findViewById(R.id.id_editText_ffabric);
-        EditText editfwood      = (EditText) findViewById(R.id.id_editText_fwood);
-        EditText editfcount     = (EditText) findViewById(R.id.id_editText_fcount);
-        EditText editfkosan     = (EditText) findViewById(R.id.id_editText_fkosan);
-        EditText editfexist     = (EditText) findViewById(R.id.id_editText_fexist);
-        EditText editfimage     = (EditText) findViewById(R.id.id_editText_fimage);
-        Button btnaddfurniture  = (Button)   findViewById(R.id.id_btn_addfurniture);
-
-        btnaddfurniture.setOnClickListener(new View.OnClickListener(){
-            @Override
+        btnaddimage.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0) {
                 /*****
-                 * insert to database
+                 * insert image folder address to database
                  *****/
             }
         });
 
+        btnaddfurniture.setOnClickListener(new View.OnClickListener(){
+            public void onClick (View arg0){
+                /*****
+                 * insert furniture to database
+                 *****/
+            }
+        });
+
+        btneditfurniture.setOnClickListener(new View.OnClickListener(){
+            public void onClick (View arg0){
+                /*****
+                 * update furniture in database
+                 *****/
+            }
+        });
+
+        btndeletfurniture.setOnClickListener(new View.OnClickListener(){
+            public void onClick (View arg0){
+                /*****
+                 * insert furniture to database
+                 *****/
+            }
+        });
     }
 }
