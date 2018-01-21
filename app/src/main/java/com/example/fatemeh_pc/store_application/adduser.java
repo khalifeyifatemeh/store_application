@@ -2,7 +2,7 @@ package com.example.fatemeh_pc.store_application;
 
 
 public class adduser {
-
+    int uid;
     String uname;
     String ulastname;
     String uemail;
@@ -28,7 +28,7 @@ public class adduser {
         this.ushopcount = 0;
     }
 
-
+    public void setUid          (int uid)           { this.uid = uid; }
     public void setUname        (String uname)      { this.uname = uname; }
     public void setUlastname    (String ulastname)  { this.ulastname = ulastname; }
     public void setUemail       (String uemail)     { this.uemail = uemail; }
@@ -39,7 +39,7 @@ public class adduser {
     public void setUtype        (String utype)      { this.utype=utype; }
     public void setUshopcount   (int ushopcount)    { this.ushopcount = ushopcount; }
 
-
+    public int getUid()             { return this.uid; }
     public String getUname()        { return this.uname; }
     public String getUlastname()    { return this.ulastname; }
     public String getUemail()       { return this.uemail; }

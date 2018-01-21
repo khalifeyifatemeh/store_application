@@ -1,9 +1,13 @@
 package com.example.fatemeh_pc.store_application;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import static nl.qbusict.cupboard.CupboardFactory.cupboard;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
@@ -17,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "moblplus.db";
 
     // Table Names
-    private static final String TABLE_user  = "user";
+    private static final String TABLE_user      = "user";
     private static final String TABLE_furniture = "furniture";
     private static final String TABLE_invoice   = "invoice";
     private static final String TABLE_cfi       = "cfi";
@@ -81,10 +85,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     /**
-     *
+     * @intro insert user to user table
      * @param _adduser
      * @return long
-     * @description insert user to user table
      */
     public long createUser(adduser _adduser){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -105,8 +108,86 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return _uid;
     }
 
-    public adduser getuser()
-    {
 
+    /**
+     * @intro select specific user used in sign in class
+     * @param uphone
+     * @param upassword
+     * @return adduser class
+     */
+    public adduser getUser(String uphone, String upassword){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT  * FROM " + TABLE_user + " WHERE " +
+                "uphone  = " + uphone + ", upassword  = " + upassword;
+
+        /*
+        The Android system uses a centralized system for all logs.
+        The application programmer can also write custom log messages.
+         */
+        Log.e(LOG, selectQuery);
+
+        /*
+        The basic purpose of a cursor is to point to a
+        single row of the result fetched by the query.
+        We load the row pointed by the cursor object.
+        By using cursor we can save lot of ram and memory.
+         */
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        /*
+        Move the cursor to the first row.
+        This method will return false if the cursor is empty.
+         */
+        if (c != null)
+            c.moveToFirst();
+
+        adduser user = new adduser();
+        user.setUid         (c.getInt       (c.getColumnIndex("uid")));
+        user.setUname       ((c.getString   (c.getColumnIndex("uname"))));
+        user.setUlastname   ((c.getString   (c.getColumnIndex("ulastname"))));
+        user.setUemail      ((c.getString   (c.getColumnIndex("uemail"))));
+        user.setUphone      ((c.getString   (c.getColumnIndex("uphone"))));
+        user.setUpassword   ((c.getString   (c.getColumnIndex("upassword"))));
+        user.setUpostalcode ((c.getString   (c.getColumnIndex("upostalcode"))));
+        user.setUaddress    ((c.getString   (c.getColumnIndex("uaddress"))));
+        user.setUtype       ((c.getString   (c.getColumnIndex("utype"))));
+        user.setUshopcount  ((c.getInt      (c.getColumnIndex("ushopcount"))));
+
+        return user;
+    }
+
+    /**
+     * @intro select all users from user table
+     * @return users which is a list of the adduser class
+     */
+    public List<adduser> getAllUsers(){
+        List<adduser> users = new ArrayList<adduser>();
+        String selectQuery = "SELECT * FROM user";
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to users list
+        if (c.moveToFirst()) {
+            do{
+                adduser user = new adduser();
+                user.setUid         (c.getInt       (c.getColumnIndex("uid")));
+                user.setUname       ((c.getString   (c.getColumnIndex("uname"))));
+                user.setUlastname   ((c.getString   (c.getColumnIndex("ulastname"))));
+                user.setUemail      ((c.getString   (c.getColumnIndex("uemail"))));
+                user.setUphone      ((c.getString   (c.getColumnIndex("uphone"))));
+                user.setUpassword   ((c.getString   (c.getColumnIndex("upassword"))));
+                user.setUpostalcode ((c.getString   (c.getColumnIndex("upostalcode"))));
+                user.setUaddress    ((c.getString   (c.getColumnIndex("uaddress"))));
+                user.setUtype       ((c.getString   (c.getColumnIndex("utype"))));
+                user.setUshopcount  ((c.getInt      (c.getColumnIndex("ushopcount"))));
+
+                //adding to users list
+                users.add(user);
+            }while(c.moveToNext());
+        }
+        return users;
     }
 }
