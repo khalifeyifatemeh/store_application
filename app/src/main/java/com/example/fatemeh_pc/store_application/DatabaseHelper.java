@@ -89,23 +89,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
      * @param _adduser
      * @return long
      */
-    public long createUser(adduser _adduser){
+    public long createUser(adduser user){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("uname",        _adduser.getUname());
-        values.put("ulastname",    _adduser.getUlastname());
-        values.put("uemail",       _adduser.getUemail());
-        values.put("uphone",       _adduser.getUphone());
-        values.put("upassword",    _adduser.getUpassword());
-        values.put("upostalcode",  _adduser.getUpostalcode());
-        values.put("uaddress",     _adduser.getUaddress());
-        values.put("utype",        _adduser.getUtype());
-        values.put("ushopcount",   _adduser.getUshopcount());
+        values.put("uname",        user.getUname());
+        values.put("ulastname",    user.getUlastname());
+        values.put("uemail",       user.getUemail());
+        values.put("uphone",       user.getUphone());
+        values.put("upassword",    user.getUpassword());
+        values.put("upostalcode",  user.getUpostalcode());
+        values.put("uaddress",     user.getUaddress());
+        values.put("utype",        user.getUtype());
+        values.put("ushopcount",   user.getUshopcount());
 
-        long _uid = db.insert(TABLE_user, null, values);
+        long userID = db.insert(TABLE_user, null, values);
 
-        return _uid;
+        return userID;
     }
 
 
@@ -190,4 +190,44 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
         return users;
     }
+
+    /**
+     * @intro update single user
+     * @param user
+     * @return Uid
+     */
+    public long updateUser(adduser user){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("uname",        user.getUname());
+        values.put("ulastname",    user.getUlastname());
+        values.put("uemail",       user.getUemail());
+        values.put("uphone",       user.getUphone());
+        values.put("upassword",    user.getUpassword());
+        values.put("upostalcode",  user.getUpostalcode());
+        values.put("uaddress",     user.getUaddress());
+        values.put("utype",        user.getUtype());
+        values.put("ushopcount",   user.getUshopcount());
+
+        long _uid = db.insert(TABLE_user, null, values);
+
+        // updating row
+        return db.update(TABLE_user, values, "uid = ?",
+                new String[] { String.valueOf(user.getUid()) });
+    }
+
+    /**
+     * @intro delete a single user
+     * @param userid
+     */
+    public void deleteUser(int userid){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_user, "uid = ?",
+                new String[] { String.valueOf(userid) });
+    }
+
+
+
+
 }

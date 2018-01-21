@@ -12,7 +12,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
+        <Spinner
+            android:id="@+id/id_spinner_furniture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:padding="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorAccent" />
 
          <EditText
             android:layout_width="match_parent"
@@ -21,7 +36,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="کد مبل"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fid"
@@ -38,7 +53,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="نام مبل"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fname"
@@ -55,7 +70,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="نوع مبل"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_ftype"
@@ -72,7 +87,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="قیمت"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fprice"
@@ -89,7 +104,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="رنگ"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fcolor"
@@ -106,7 +121,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="نام و کد پارچه"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_ffabric"
@@ -123,7 +138,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="جنس چوب"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fwood"
@@ -140,7 +155,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="تعداد نفرات"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fcount"
@@ -157,7 +172,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="تعداد کوسن"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fkosan"
@@ -174,7 +189,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:hint="موجود ناموجود"
-            android:padding="10dp"
+            android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
             android:id="@+id/id_editText_fexist"
@@ -184,37 +199,96 @@
             android:clickable="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
-        <EditText
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TableRow>
+        <Button
+            android:id="@+id/id_btn_addimage"
+            android:text="افزودن عکس"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:hint="عکس"
-            android:padding="10dp"
-            android:ems="10"
-            android:layout_marginTop="14dp"
-            android:id="@+id/id_editText_fimage"
             android:layout_centerHorizontal="true"
-            android:background="@color/colorAccent"
-            android:layout_below="@+id/id_editText_fexist"
-            android:clickable="true"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="27dp"/>
 
+        <TextView
+            android:id="@+id/id_addimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/id_editText_fexist"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="42dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:ems="10"
+            android:hint="عکس"
+            android:inputType="text"
+            android:padding="8dp" />
+    </TableRow>
+</TableLayout>
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TableRow>
         <Button
-            android:text="افزودن مبل"
-            android:layout_width="match_parent"
+            android:id="@+id/id_btn_addfurniture"
+            android:text="افزودن"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_below="@+id/id_editText_fimage"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
-            android:id="@+id/id_btn_addfurniture"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.11" />
+
+        <Button
+            android:id="@+id/id_btn_editfurniture"
+            android:text="ویرایش"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_editText_fimage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
+        <Button
+            android:id="@+id/id_btn_deletefurniture"
+            android:text="حذف"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="false"
+            android:layout_below="@+id/id_editText_fimage"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+            </TableRow>
 
-
+        </TableLayout>
 
 
 
