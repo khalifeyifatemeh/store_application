@@ -2,30 +2,30 @@ package com.example.fatemeh_pc.store_application;
 
 
 public class signinclass {
-    String cphone;
-    String cpassword;
+    String uphone;
+    String upassword;
 
     public signinclass(){
     }
 
-    public signinclass(String cphone, String cpassword){
-        this.cphone = cphone;
-        this.cpassword = cpassword;
+    public signinclass(String uphone, String upassword){
+        this.uphone = uphone;
+        this.upassword = upassword;
     }
 
-    public void setCphone(String cphone){
-        this.cphone = cphone;
+    public void setuphone(String uphone){
+        this.uphone = uphone;
     }
 
-    public void setCpassword(String cpassword){
-        this.cpassword = cpassword;
+    public void setupassword(String upassword){
+        this.upassword = upassword;
     }
 
-    public String getCphone(){
-        return this.cphone;
+    public String getuphone(){
+        return this.uphone;
     }
 
-    public  String getCpassword(){
-        return this.cpassword;
+    public  String getupassword(){
+        return this.upassword;
     }
 }

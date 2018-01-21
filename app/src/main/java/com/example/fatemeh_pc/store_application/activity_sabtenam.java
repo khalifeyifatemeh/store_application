@@ -30,14 +30,14 @@ public class activity_sabtenam extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sabtenam);
 
-        EditText editcname          = (EditText) findViewById(R.id.id_editText_firstname);
-        EditText editclastname      = (EditText) findViewById(R.id.id_editText_lastname);
-        EditText editcid            = (EditText) findViewById(R.id.id_editText_id);
-        EditText editcemail         = (EditText) findViewById(R.id.id_editText_email);
-        EditText editcphone         = (EditText) findViewById(R.id.id_editText_phone);
-        EditText editcpassword      = (EditText) findViewById(R.id.id_editText_password);
-        EditText editcpostalcode    = (EditText) findViewById(R.id.id_editText_postalcode);
-        EditText editcaddress       = (EditText) findViewById(R.id.id_editText_address);
+        EditText edituname          = (EditText) findViewById(R.id.id_editText_firstname);
+        EditText editulastname      = (EditText) findViewById(R.id.id_editText_lastname);
+        EditText edituid            = (EditText) findViewById(R.id.id_editText_id);
+        EditText edituemail         = (EditText) findViewById(R.id.id_editText_email);
+        EditText edituphone         = (EditText) findViewById(R.id.id_editText_phone);
+        EditText editupassword      = (EditText) findViewById(R.id.id_editText_password);
+        EditText editupostalcode    = (EditText) findViewById(R.id.id_editText_postalcode);
+        EditText edituaddress       = (EditText) findViewById(R.id.id_editText_address);
         Button   btnsignup          = (Button)   findViewById(R.id.id_btn_signup);
 
         btnsignup.setOnClickListener(new OnClickListener() {
