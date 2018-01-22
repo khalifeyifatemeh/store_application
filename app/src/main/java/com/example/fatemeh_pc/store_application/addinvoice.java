@@ -6,6 +6,8 @@ import java.util.Date;
 
 
 public class addinvoice {
+    int iid;
+    int itransactionid;
     int itotalprice;
     int itransportprice;
     int ioffprice;
@@ -22,12 +24,16 @@ public class addinvoice {
         this.idate = date.toString();
     }
 
-    public void setItotalprice     (int itotalprice)    {this.itotalprice = itotalprice;}
-    public void setItransportprice (int itransportprice){this.itransportprice = itransportprice;}
-    public void setIoffprice       (int ioffprice)      {this.ioffprice = ioffprice;}
-    public void setIdate           (String idate)       {this.idate = idate;}
+    public void setIid              (int iid)               {this.iid = iid;}
+    public void setItransactionid   (int itransactionid)    {this.itransactionid = itransactionid;}
+    public void setItotalprice      (int itotalprice)       {this.itotalprice = itotalprice;}
+    public void setItransportprice  (int itransportprice)   {this.itransportprice = itransportprice;}
+    public void setIoffprice        (int ioffprice)         {this.ioffprice = ioffprice;}
+    public void setIdate            (String idate)          {this.idate = idate;}
 
 
+    public int      getIid()            {return this.iid;}
+    public int      getItransactionid() {return this.itransactionid;}
     public int      getItotalprice()    {return this.itotalprice;}
     public int      getItransportprice(){return this.itransportprice;}
     public int      getIoffprice()      {return this.ioffprice;}
