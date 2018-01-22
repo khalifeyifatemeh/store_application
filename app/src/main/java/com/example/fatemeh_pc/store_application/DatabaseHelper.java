@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // invoice table create statement
     private static final String CREATE_TABLE_invoice = "CREATE TABLE " +
             TABLE_invoice + "( itransactionid INTEGER PRIMARY KEY AUTOINCREMENT, itotalprice INTEGER," +
-            " itransportprice INTEGER, ioffprice INTEGER, idate DATETIME)";
+            " itransportprice INTEGER, ioffprice INTEGER, idate TEXT)";
 
     // invoice table create statement
     private static final String CREATE_TABLE_cfi = "CREATE TABLE " +
@@ -228,6 +228,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+    //**********************************************************************************************
+
+
     /**
      * @intro insert in to furniture table
      * @param user
@@ -324,7 +327,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     /**
      * @intro update single furniture
      * @param furniture
-     * @return Uid
+     * @return fid
      */
     public long updatefurniture(addfurniture furniture){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -357,4 +360,142 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.delete(TABLE_furniture, "fid = ?",
                 new String[] { String.valueOf(fid) });
     }
+
+
+    //**********************************************************************************************
+
+//    itransactionid INTEGER PRIMARY KEY AUTOINCREMENT, itotalprice INTEGER," +
+//            " itransportprice INTEGER, ioffprice INTEGER, idate DATETIME
+
+
+    /**
+     * @intro insert in to invoice table
+     * @param user
+     * @return
+     */
+    public long createInvoice(addfurniture user){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("fid",           user.getFid());
+        values.put("fname",         user.getFname());
+        values.put("ftype",         user.getFtype());
+        values.put("fprice",        user.getFprice());
+        values.put("fcolor",        user.getFcolor());
+        values.put("ffabric",       user.getFfabric());
+        values.put("fwood",         user.getFwood());
+        values.put("fcount",        user.getFcount());
+        values.put("fkosan",        user.getFkosan());
+        values.put("fexist",        user.getFexist());
+        values.put("fimageaddress", user.getFimageaddress());
+
+        long userID = db.insert(TABLE_furniture, null, values);
+        return userID;
+    }
+
+    /**
+     * @intro select one furniture from database
+     * @param fid
+     * @return
+     */
+    public addfurniture getfurniture(int fid){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT  * FROM " + TABLE_furniture + " WHERE " +
+                "fid  = " + fid;
+
+        Log.e(LOG, selectQuery);
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        addfurniture furniture = new addfurniture();
+        furniture.setFid            (c.getInt       (c.getColumnIndex("fid")));
+        furniture.setFname          ((c.getString   (c.getColumnIndex("fname"))));
+        furniture.setFtype          ((c.getString   (c.getColumnIndex("ftype"))));
+        furniture.setFprice         ((c.getString   (c.getColumnIndex("fprice"))));
+        furniture.setFcolor         ((c.getString   (c.getColumnIndex("fcolor"))));
+        furniture.setFfabric        ((c.getString   (c.getColumnIndex("ffabric"))));
+        furniture.setFwood          ((c.getString   (c.getColumnIndex("fwood"))));
+        furniture.setFcount         ((c.getString   (c.getColumnIndex("fcount"))));
+        furniture.setFkosan         ((c.getString   (c.getColumnIndex("fkosan"))));
+        furniture.setFexist         ((c.getString   (c.getColumnIndex("fexist"))));
+        furniture.setFimageaddress  ((c.getString   (c.getColumnIndex("fimageaddress"))));
+
+        return furniture;
+    }
+
+    /**
+     * @intro select all furnitures from furniture table
+     * @return furnitures which is a list of the addfurniture class
+     */
+    public List<addfurniture> getAllFurnitures(){
+        List<addfurniture> furnitures = new ArrayList<addfurniture>();
+        String selectQuery = "SELECT * FROM furniture";
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to furniture list
+        if (c.moveToFirst()) {
+            do{
+                addfurniture furniture = new addfurniture();
+                furniture.setFid            (c.getInt       (c.getColumnIndex("fid")));
+                furniture.setFname          ((c.getString   (c.getColumnIndex("fname"))));
+                furniture.setFtype          ((c.getString   (c.getColumnIndex("ftype"))));
+                furniture.setFprice         ((c.getString   (c.getColumnIndex("fprice"))));
+                furniture.setFcolor         ((c.getString   (c.getColumnIndex("fcolor"))));
+                furniture.setFfabric        ((c.getString   (c.getColumnIndex("ffabric"))));
+                furniture.setFwood          ((c.getString   (c.getColumnIndex("fwood"))));
+                furniture.setFcount         ((c.getString   (c.getColumnIndex("fcount"))));
+                furniture.setFkosan         ((c.getString   (c.getColumnIndex("fkosan"))));
+                furniture.setFexist         ((c.getString   (c.getColumnIndex("fexist"))));
+                furniture.setFimageaddress  ((c.getString   (c.getColumnIndex("fimageaddress"))));
+
+                //adding to furnitures list
+                furnitures.add(furniture);
+            }while(c.moveToNext());
+        }
+        return furnitures;
+    }
+
+    /**
+     * @intro update single furniture
+     * @param furniture
+     * @return fid
+     */
+    public long updatefurniture(addfurniture furniture){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("fname",             furniture.getFname());
+        values.put("ftype",             furniture.getFtype());
+        values.put("fprice",            furniture.getFprice());
+        values.put("fcolor",            furniture.getFcolor());
+        values.put("ffabric",           furniture.getFfabric());
+        values.put("fwood",             furniture.getFwood());
+        values.put("fcount",            furniture.getFcount());
+        values.put("fkosan",            furniture.getFkosan());
+        values.put("fexist",            furniture.getFexist());
+        values.put("fimageaddress",     furniture.getFimageaddress());
+
+        long fid = db.insert(TABLE_furniture, null, values);
+
+        // updating row
+        return db.update(TABLE_furniture, values, "fid = ?",
+                new String[] { String.valueOf(furniture.getFid()) });
+    }
+
+    /**
+     * @intro delete single furniture
+     * @param fid
+     */
+    public void deleteFurniture(int fid){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_furniture, "fid = ?",
+                new String[] { String.valueOf(fid) });
+    }
+
 }
