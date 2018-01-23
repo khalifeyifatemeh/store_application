@@ -8,5 +8,12 @@
     <string name="javab1">برای خرید و استفاده از طرح های تشویقی نیاز دارید حساب کاربری داشته باشید تا اطلاعات و خریدهای شما ثبت شود.</string>
     <string name="javab2"> با استفاده از کدرهگیری که هنگام پرداخت به شما داده میشود.</string>
 
+    ////////images introduction
+    <string name="str_img1">Image1</string>
+    <string name="str_img2">Image2</string>
+    <string name="str_img3">Image3</string>
+    <string name="str_img4">Image4</string>
 
+    <string name="str_btn_start">Start SlideShow</string>
+    <string name="str_btn_stop">Stop SlideShow</string>
 </resources>

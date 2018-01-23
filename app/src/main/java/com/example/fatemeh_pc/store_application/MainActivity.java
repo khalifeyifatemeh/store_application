@@ -19,16 +19,18 @@ import android.widget.RelativeLayout;
 import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private static ImageView imgview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 

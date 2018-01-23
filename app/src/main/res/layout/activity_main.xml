@@ -7,14 +7,110 @@
     tools:context="com.example.fatemeh_pc.store_application.MainActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ViewFlipper
+        android:id="@+id/id_mainflipper"
+        android:layout_width="385dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:autoStart="true"
+        android:flipInterval="3000"
+        android:inAnimation="@android:anim/fade_in"
+        android:outAnimation="@android:anim/fade_out"
+        android:scaleType="fitXY"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp">
 
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/str_img1"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/str_img2"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image2" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/str_img3"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image3" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/str_img4"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image4" />
+
+
+    </ViewFlipper>
+
+        <TableLayout
+            android:layout_width="385dp"
+            android:layout_height="200dp"
+            android:orientation="center_horizontal"
+            android:layout_gravity="bottom"
+            android:padding="40dp">
+
+        <TableRow>
+        <Button
+            android:id="@+id/id_btn_buff"
+            android:text="بوف"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.11" />
+
+        <Button
+            android:id="@+id/id_btn_comfort"
+            android:text="راحتی"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:id="@+id/id_btn_royal"
+            android:text="سلطنتی"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </TableRow>
+
+    </TableLayout>
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
