@@ -20,28 +20,36 @@
         </activity>
         <activity
             android:name=".soal_activity"
-            android:label="سوالات متداول" />
+            android:label="سوالات متداول"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".vorud_activity"
-            android:label="ورود" />
+            android:label="ورود"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".about_activity"
-            android:label="درباره ما" />
+            android:label="درباره ما"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".category_activity"
-            android:label="دسته بندی محصولات" />
+            android:label="دسته بندی محصولات"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".sabad_activity"
-            android:label="سبد خرید" />
+            android:label="سبد خرید"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".vizheh_activity"
-            android:label="پیشنهاد ویژه مبل پلاس" />
+            android:label="پیشنهاد ویژه مبل پلاس"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".search_activity"
-            android:label="جست و جو" />
+            android:label="جست و جو"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".activity_sabtenam"
-            android:label="ثبت نام در مبل پلاس" />
+            android:label="ثبت نام در مبل پلاس"
+            android:parentActivityName=".vorud_activity"/>
         <activity android:name=".addfurniture_activity"
             android:label="افزودن مبل">
         </activity>

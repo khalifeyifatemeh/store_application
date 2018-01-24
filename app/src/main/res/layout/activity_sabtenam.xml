@@ -166,6 +166,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
             android:id="@+id/id_btn_signup"
+            android:background="@drawable/mybutton"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
 
