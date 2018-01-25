@@ -31,20 +31,18 @@ public class vorud_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vorud_activity);
 
-
-
         Button btnsignin        = (Button) findViewById(R.id.id_btn_signin);
         Button btngotosignup    = (Button) findViewById(R.id.id_btn_gotosignup);
         EditText editusername   = (EditText) findViewById(R.id.id_editText_phone);
         EditText editpassword   = (EditText) findViewById(R.id.id_editText_password);
 
         btngotosignup.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
                 Intent next = new Intent(vorud_activity.this, activity_sabtenam.class);
                 startActivity(next);
             }
         });
+
     }
 }

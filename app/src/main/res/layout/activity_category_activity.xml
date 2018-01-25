@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.example.fatemeh_pc.store_application.category_activity">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/black"
+        >
 
-</android.support.constraint.ConstraintLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            >
+            <ImageButton
+                android:id="@+id/id_imgbtncomfort"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:src="@drawable/ic_comfort"
+                android:layout_marginLeft="7dp"/>
+            <TextView
+                android:id="@+id/id_textviewcomfort"
+                android:text="راحتی"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            >
+            <ImageButton
+                android:id="@+id/id_imgbtnroyal"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_royal"
+                android:clickable="true"
+                android:layout_marginLeft="7dp"/>
+            <TextView
+                android:id="@+id/id_textviewroyal"
+                android:text="سلطنتی"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp">
+            <ImageButton
+                android:id="@+id/id_imgbtnbuff"
+                android:layout_width="130dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_buff"
+                android:clickable="true"
+                android:layout_marginLeft="7dp"/>
+            <TextView
+                android:id="@+id/id_textviewbuff"
+                android:text="باف"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                />
+
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
