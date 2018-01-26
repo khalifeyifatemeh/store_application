@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".soal_activity"
             android:label="سوالات متداول"
@@ -53,9 +52,13 @@
             android:parentActivityName=".vorud_activity" />
         <activity
             android:name=".addfurniture_activity"
-            android:label="افزودن مبل"></activity>
-        <activity android:name=".product_activity"
-            android:label="مبل پلاس">
+            android:label="افزودن مبل" />
+        <activity
+            android:name=".product_activity"
+            android:label="مبل پلاس"></activity>
+
+        <activity android:name=".test_of_db"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

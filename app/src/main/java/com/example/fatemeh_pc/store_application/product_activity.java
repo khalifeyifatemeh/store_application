@@ -14,7 +14,7 @@ public class product_activity extends AppCompatActivity {
 
     int[] images={R.drawable.ic_buff,R.drawable.ic_royal,R.drawable.ic_comfort};
     String[] names={"buff","royal","comfort"};
-    String[] prices={"200","300","400"}
+    String[] prices={"200","300","400"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

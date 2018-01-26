@@ -14,6 +14,8 @@ public class adduser {
     int ushopcount;
 
     public adduser() {
+        this.utype = "customer";
+        this.ushopcount = 0;
     }
 
 

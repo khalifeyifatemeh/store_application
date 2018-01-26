@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fatemeh_pc.store_application.test_of_db">
+
+    <TableLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/btn_user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="user"
+            />
+    <!--<Button-->
+        <!--android:id="@+id/btn_furniture"-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:text="furniture"-->
+         <!--/>-->
+    <!--<Button-->
+        <!--android:id="@+id/btn_invoice"-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:text="invoice"-->
+         <!--/>-->
+    <!--<Button-->
+        <!--android:id="@+id/btn_ufi"-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:text="ufi"-->
+       <!--/>-->
+        </TableRow>
+    </TableLayout>
+    <TextView
+        android:id="@+id/textview_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"/>
+
+
+</LinearLayout>
