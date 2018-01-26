@@ -32,9 +32,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // Table Create Statements
     // user table create statement
     private static final String CREATE_TABLE_user = "CREATE TABLE " +
-            TABLE_user + "( uid INTEGER PRIMARY KEY AUTOINCREMENT, uname TEXT, ulastname TEXT," +
+            TABLE_user + "(uid INTEGER PRIMARY KEY AUTOINCREMENT, uname TEXT , ulastname TEXT," +
             " uemail TEXT, uphone TEXT,upassword TEXT, upostalcode TEXT, uaddress TEXT, " +
             " utype TEXT, ushopcount INTEGER)";
+
 
     // furniture table create statement
     private static final String CREATE_TABLE_furniture = "CREATE TABLE " +
@@ -47,7 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             TABLE_invoice + "( iid INTEGER PRIMARY KEY AUTOINCREMENT, itransactionid INTEGER , itotalprice INTEGER," +
             " itransportprice INTEGER, ioffprice INTEGER, idate TEXT)";
 
-    // invoice table create statement
+    // ufi table create statement
     private static final String CREATE_TABLE_ufi = "CREATE TABLE " +
             TABLE_ufi + "(uid INTEGER, fid INTEGER, iid INTEGER," +
             " PRIMARY KEY (uid, fid, iid))";
@@ -58,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // creating required tables
@@ -65,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(CREATE_TABLE_furniture);
         db.execSQL(CREATE_TABLE_invoice);
         db.execSQL(CREATE_TABLE_ufi);
+
     }
 
     @Override
@@ -107,11 +110,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             values.put("utype", user.getUtype());
             values.put("ushopcount", user.getUshopcount());
 
+
             long userID = db.insert(TABLE_user, null, values);
             return userID;
         }catch (SQLException e){
             return 0;
         }
+
     }
 
 

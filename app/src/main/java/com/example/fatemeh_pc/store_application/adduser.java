@@ -16,6 +16,8 @@ public class adduser {
     public adduser() {
     }
 
+
+
     public adduser(String uname,String ulastname,String uemail,String uphone,String upassword,String upostalcode,String uaddress){
         this.uname = uname;
         this.ulastname = ulastname;
@@ -49,4 +51,5 @@ public class adduser {
     public String getUaddress()     { return this.uaddress; }
     public String getUtype()        { return this.utype; }
     public int    getUshopcount()   { return this.ushopcount; }
+
 }
