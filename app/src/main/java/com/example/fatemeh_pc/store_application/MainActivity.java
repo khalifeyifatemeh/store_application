@@ -23,6 +23,11 @@ import android.widget.ViewFlipper;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static String uphone = null;
+
+    public static Menu menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        if(uphone != null) {
+            MenuItem m = menu.findItem(R.id.id_vorud);
+            m.setTitle(uphone);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -42,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.id_vorud) {
+
+
+
             Intent intent = new Intent(this, vorud_activity.class);
             this.startActivity(intent);
             return true;
@@ -86,8 +98,18 @@ public class MainActivity extends AppCompatActivity {
             this.startActivity(intent);
             return true;
         }
+        if (id == R.id.id_logout) {
+            Intent intent = new Intent(this, sabad_activity.class);
+            this.startActivity(intent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 }
 

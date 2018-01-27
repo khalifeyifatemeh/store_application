@@ -1,6 +1,8 @@
 package com.example.fatemeh_pc.store_application;
 
+import android.content.SharedPreferences;
 import android.database.SQLException;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,11 +24,15 @@ import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 
+import static com.example.fatemeh_pc.store_application.R.id.id_vorud;
+import static com.example.fatemeh_pc.store_application.R.menu.menu_main;
+
 
 public class vorud_activity extends AppCompatActivity {
 
+    public static String uphone;
+    SharedPreferences sp;
     DatabaseHelper db;
-
     DatabaseHelper databasehelper = new DatabaseHelper(this);
 
     @Override
@@ -34,8 +40,13 @@ public class vorud_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vorud_activity);
 
-        db = new DatabaseHelper(getApplicationContext());
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+        if(sp.getBoolean("logged",false)){
+            MainActivity.uphone = sp.getString("uphone","");
+            goToMainActivity();
+        }
 
+        db = new DatabaseHelper(getApplicationContext());
         Button btnsignin        = (Button) findViewById(R.id.id_btn_signin);
         Button btngotosignup    = (Button) findViewById(R.id.id_btn_gotosignup);
         final EditText editusername   = (EditText) findViewById(R.id.id_editText_phone);
@@ -49,6 +60,10 @@ public class vorud_activity extends AppCompatActivity {
                     adduser user = db.getUser(editusername.getText().toString(),editpassword.getText().toString());
                     if(user != null) {
                         Toast.makeText(getApplicationContext(), user.getUname() + " خوش آمدید " , Toast.LENGTH_LONG).show();
+                        sp.edit().putBoolean("logged",true);
+                        sp.edit().putString("uphone",user.uphone);
+                        MainActivity.uphone = user.getUphone();
+                        goToMainActivity();
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "نام کاربری یا کلمه عبور اشتباه است", Toast.LENGTH_LONG).show();
@@ -73,4 +88,9 @@ public class vorud_activity extends AppCompatActivity {
 
         db.closeDB();
     }
+    private void goToMainActivity() {
+        Intent next = new Intent(this,MainActivity.class);
+        startActivity(next);
+    }
+
 }

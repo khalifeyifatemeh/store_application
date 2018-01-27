@@ -70,5 +70,11 @@
         android:orderInCategory="107"
         android:showAsAction="never"
         />
+    <item
+        android:title="خروج"
+        android:id="@+id/id_logout"
+        android:orderInCategory="108"
+        android:showAsAction="never"
+        />
 </menu>
 
