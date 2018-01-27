@@ -62,31 +62,11 @@ public class activity_sabtenam extends AppCompatActivity {
                     user.setUaddress(edituaddress.getText().toString());
 
                     db.createUser(user);
-                    Toast.makeText(getApplicationContext(), "hellooooo.....", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
                 } catch (SQLException e) {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
 
-//                name= edituname.getText().toString();
-//                family = editulastname.getText().toString();
-//                //String s= edituid.getText().toString();
-//                email = edituemail.getText().toString();
-//                phone = edituphone.getText().toString();
-//                password= editupassword.getText().toString();
-//                postalcode= editupostalcode.getText().toString();
-//                address = edituaddress.getText().toString();
-//                //sets
-//                user1.setUname(name);
-//                user1.setUlastname(family);
-//                user1.setUemail(email);
-//                user1.setUphone(phone);
-//                user1.setUpassword(password);
-//                user1.setUpostalcode(postalcode);
-//                user1.setUaddress(address);
-//                db=new DatabaseHelper(getBaseContext());
-//                db.createUser(user1);
-//                Intent next = new Intent(activity_sabtenam.this, MainActivity.class);
-//                startActivity(next);
             }
         });
 

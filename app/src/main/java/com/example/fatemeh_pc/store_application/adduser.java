@@ -20,6 +20,11 @@ public class adduser {
 
 
 
+    public adduser(String phone,String password) {
+        this.uphone = phone;
+        this.upassword = password;
+    }
+
     public adduser(String uname,String ulastname,String uemail,String uphone,String upassword,String upostalcode,String uaddress){
         this.uname = uname;
         this.ulastname = ulastname;

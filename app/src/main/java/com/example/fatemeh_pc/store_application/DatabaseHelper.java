@@ -138,7 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         try {
             SQLiteDatabase db = this.getReadableDatabase();
             String selectQuery = "SELECT  * FROM " + TABLE_user + " WHERE " +
-                    "uphone  = " + uphone + ", upassword  = " + upassword;
+                    "uphone  = '" + uphone + "' and upassword  = '" + upassword + "'";
 
             /*
             The Android system uses a centralized system for all logs.
@@ -652,5 +652,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         }
     }
+
+
 
 }
