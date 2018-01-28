@@ -24,16 +24,21 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static  boolean flag=false;//main activity is run
     public static String uphone = null;
 
     public static Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //if(flag==true)
+            //this.finish();
+        //flag=false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
     }
+
 
 
     @Override
@@ -104,8 +109,17 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if(flag==true)
+        {
+            this.finish();
+        }
+        else if(flag ==false)
+        {
+
+        }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 

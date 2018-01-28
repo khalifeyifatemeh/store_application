@@ -2,7 +2,11 @@ package com.example.fatemeh_pc.store_application;
 
 import android.content.SharedPreferences;
 import android.database.SQLException;
+import android.os.Build;
 import android.provider.Settings;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -54,6 +58,7 @@ public class vorud_activity extends AppCompatActivity {
 
         ///////onclick function for button of sighnin////////
         btnsignin.setOnClickListener(new OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 try {
@@ -62,8 +67,12 @@ public class vorud_activity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), user.getUname() + " خوش آمدید " , Toast.LENGTH_LONG).show();
                         sp.edit().putBoolean("logged",true);
                         sp.edit().putString("uphone",user.uphone);
+                        vorud_activity.this.finish();
                         MainActivity.uphone = user.getUphone();
-                        goToMainActivity();
+                        //MainActivity.flag=true;
+                        finishAffinity();
+                        Intent next = new Intent(vorud_activity.this, MainActivity.class);
+                            startActivityForResult(next, 1);
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "نام کاربری یا کلمه عبور اشتباه است", Toast.LENGTH_LONG).show();
@@ -88,9 +97,9 @@ public class vorud_activity extends AppCompatActivity {
 
         db.closeDB();
     }
-    private void goToMainActivity() {
-        Intent next = new Intent(this,MainActivity.class);
+    public void goToMainActivity() {
+        Intent next = new Intent(this, MainActivity.class);
         startActivity(next);
-    }
+           }
 
 }
