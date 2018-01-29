@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     // furniture table create statement
     private static final String CREATE_TABLE_furniture = "CREATE TABLE " +
-            TABLE_furniture + "( fid INTEGER PRIMARY KEY AUTOINCREMENT, fname TEXT, ftype TEXT," +
+            TABLE_furniture + "( fid INTEGER PRIMARY KEY, fname TEXT, ftype TEXT," +
             " fprice TEXT, fcolor TEXT, ffabric TEXT, fwood TEXT, fkosan TEXT, " +
             " fexist TEXT, fimage TEXT)";
 

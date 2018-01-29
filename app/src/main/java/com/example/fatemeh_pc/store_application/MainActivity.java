@@ -1,5 +1,6 @@
 package com.example.fatemeh_pc.store_application;
 
+import android.content.ClipData;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,16 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
     public static  boolean flag=false;//main activity is run
     public static String uphone = null;
-
+    public static  boolean vorudopening=false;// vorud_activity not open
     public static Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //if(flag==true)
-            //this.finish();
-        //flag=false;
+
+        //Button btn_management=(Button) findViewById(R.id.id_managment);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
     }
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         if(uphone != null) {
             MenuItem m = menu.findItem(R.id.id_vorud);
@@ -53,12 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
         if (id == R.id.id_vorud) {
-
-
-
             Intent intent = new Intent(this, vorud_activity.class);
             this.startActivity(intent);
             return true;
@@ -109,14 +108,13 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        if(flag==true)
-        {
-            this.finish();
+        if (id == R.id.id_managment) {
+            Intent intent = new Intent(this, addfurniture_activity.class);
+            this.startActivity(intent);
+            return true;
         }
-        else if(flag ==false)
-        {
 
-        }
+
         return super.onOptionsItemSelected(item);
     }
 

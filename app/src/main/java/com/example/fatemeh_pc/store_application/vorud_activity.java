@@ -33,7 +33,6 @@ import static com.example.fatemeh_pc.store_application.R.menu.menu_main;
 
 
 public class vorud_activity extends AppCompatActivity {
-
     public static String uphone;
     SharedPreferences sp;
     DatabaseHelper db;
@@ -41,6 +40,7 @@ public class vorud_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MainActivity.vorudopening=true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vorud_activity);
 

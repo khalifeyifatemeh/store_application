@@ -76,5 +76,13 @@
         android:orderInCategory="108"
         android:showAsAction="never"
         />
+    <item
+        android:title="مدیریت"
+        android:id="@+id/id_managment"
+        android:orderInCategory="109"
+        android:showAsAction="never"
+        android:visible="true"
+        android:enabled="true"
+        />
 </menu>
 
