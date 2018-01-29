@@ -1,6 +1,7 @@
 package com.example.fatemeh_pc.store_application;
 
 import android.content.ClipData;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
 
+    SQLiteDatabase db;
     public static  boolean flag=false;//main activity is run
     public static String uphone = null;
     public static  boolean vorudopening=false;// vorud_activity not open
@@ -32,13 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         //Button btn_management=(Button) findViewById(R.id.id_managment);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
     }
 
 

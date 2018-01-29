@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String LOG = "DatabaseHelper";
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database Name
     private static final String DATABASE_NAME = "moblplus.db";
@@ -298,7 +298,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         try {
             SQLiteDatabase db = this.getReadableDatabase();
             String selectQuery = "SELECT  * FROM " + TABLE_furniture + " WHERE " +
-                    "fid  = " + fid;
+                    "fid  = '" + fid +"'";
 
             Log.e(LOG, selectQuery);
             Cursor c = db.rawQuery(selectQuery, null);

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:orientation="vertical"
+    android:scrollbars="horizontal|vertical"
     android:id="@+id/id_addfurni_activity_activity"
     tools:context="com.example.fatemeh_pc.store_application.addfurniture_activity">
 
@@ -209,7 +210,7 @@
             <TableRow>
         <Button
             android:id="@+id/id_btn_addimage"
-            android:text="افزودن عکس"
+            android:text="انتخاب عکس"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -220,8 +221,16 @@
             android:layout_marginTop="14dp"
             android:layout_marginLeft="27dp"/>
 
-        <TextView
-            android:id="@+id/id_addimage"
+
+        <ImageView
+            android:id="@+id/id_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+
+            />
+        <EditText
+            android:id="@+id/id_edittex_imageaddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -235,7 +244,7 @@
             android:background="@color/colorAccent"
             android:clickable="true"
             android:ems="10"
-            android:hint="عکس"
+            android:hint="آدرس عکس"
             android:inputType="text"
             android:padding="8dp" />
     </TableRow>
@@ -252,8 +261,8 @@
         <Button
             android:id="@+id/id_btn_addfurniture"
             android:text="افزودن"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/id_editText_fimage"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
