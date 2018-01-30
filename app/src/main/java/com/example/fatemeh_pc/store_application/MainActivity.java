@@ -37,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
         //Button btn_management=(Button) findViewById(R.id.id_managment);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btn_comfort=(Button) findViewById(R.id.id_btn_comfort);
+        Button btn_buff=(Button) findViewById(R.id.id_btn_buff);
+        Button btn_royal=(Button) findViewById(R.id.id_btn_royal);
+
+        btn_comfort.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent next = new Intent(MainActivity.this, LoadProducts.class);
+                startActivity(next);
+
+
+            }
+        });
+
+
     }
 
 

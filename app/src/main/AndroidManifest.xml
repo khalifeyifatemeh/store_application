@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -58,11 +59,11 @@
             android:label="افزودن مبل" />
         <activity
             android:name=".product_activity"
-            android:label="مبل پلاس"></activity>
-
-        <activity android:name=".test_of_db"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:label="مبل پلاس" />
+        <activity
+            android:name=".test_of_db"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".LoadProducts"></activity>
     </application>
 
 </manifest>
