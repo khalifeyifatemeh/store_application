@@ -32,11 +32,12 @@ public class LoadProducts extends AppCompatActivity {
 
     private List<FURNITURE> setData()
     {
+
           furnitures.add(new FURNITURE("belona","3000",R.drawable.c1));
           furnitures.add(new FURNITURE("belona","1000",R.drawable.c2));
           furnitures.add(new FURNITURE("belona","2000",R.drawable.c3));
-        adapter.notifyDataSetChanged();
-        return furnitures;
+          adapter.notifyDataSetChanged();
+          return furnitures;
 
     }
 }

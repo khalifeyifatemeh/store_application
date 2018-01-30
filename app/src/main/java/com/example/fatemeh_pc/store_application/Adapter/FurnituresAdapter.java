@@ -1,20 +1,18 @@
 package com.example.fatemeh_pc.store_application.Adapter;
-
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.fatemeh_pc.store_application.Model.FURNITURE;
 import com.example.fatemeh_pc.store_application.R;
-
+//import com.example.fatemeh_pc.store_application.R;
 import java.util.List;
+import android.content.res.Resources;
 
-/**
- * Created by FATEMEH-PC on 1/30/2018.
- */
+
 
 public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.FurnitureViewHolder>
 {
@@ -66,13 +64,14 @@ public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.F
 
     public  class FurnitureViewHolder extends RecyclerView.ViewHolder
     {
-
-        public TextView txt_title;
-        public TextView txt_price;
-        public ImageView imageview;
+        CardView cv;
+        TextView txt_title;
+        TextView txt_price;
+        ImageView imageview;
 
         public FurnitureViewHolder(View itemView) {
             super(itemView);
+            cv=(CardView)itemView.findViewById(R.id.id_cardView);
             txt_title=(TextView)itemView.findViewById(R.id.id_txt1);
             txt_price=(TextView)itemView.findViewById(R.id.id_txt2);
             imageview=(ImageView)itemView.findViewById(R.id.imageView);
