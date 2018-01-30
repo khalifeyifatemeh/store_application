@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String LOG = "DatabaseHelper";
 
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
     private static final String DATABASE_NAME = "moblplus.db";
@@ -41,8 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // furniture table create statement
     private static final String CREATE_TABLE_furniture = "CREATE TABLE " +
             TABLE_furniture + "( fid INTEGER PRIMARY KEY, fname TEXT, ftype TEXT," +
-            " fprice TEXT, fcolor TEXT, ffabric TEXT, fwood TEXT, fkosan TEXT, " +
-            " fexist TEXT, fimage TEXT)";
+            " fprice TEXT, fcolor TEXT, ffabric TEXT, fwood TEXT, fcount TEXT, fkosan TEXT, " +
+            " fexist TEXT ,fimage TEXT)";
 
     // invoice table create statement
     private static final String CREATE_TABLE_invoice = "CREATE TABLE " +
@@ -262,28 +262,30 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     /**
      * @intro insert in to furniture table
-     * @param user
+     * @param furniture
      * @return
      */
-    public long createFurniture(addfurniture user){
+    public long createFurniture(addfurniture furniture){
         try {
             SQLiteDatabase db = this.getWritableDatabase();
 
             ContentValues values = new ContentValues();
-            values.put("fid", user.getFid());
-            values.put("fname", user.getFname());
-            values.put("ftype", user.getFtype());
-            values.put("fprice", user.getFprice());
-            values.put("fcolor", user.getFcolor());
-            values.put("ffabric", user.getFfabric());
-            values.put("fwood", user.getFwood());
-            values.put("fcount", user.getFcount());
-            values.put("fkosan", user.getFkosan());
-            values.put("fexist", user.getFexist());
-            values.put("fimageaddress", user.getFimageaddress());
+            values.put("fid", furniture.getFid());
+            values.put("fname", furniture.getFname());
+            values.put("ftype", furniture.getFtype());
+            values.put("fprice", furniture.getFprice());
+            values.put("fcolor", furniture.getFcolor());
+            values.put("ffabric", furniture.getFfabric());
+            values.put("fwood", furniture.getFwood());
+            values.put("fcount", furniture.getFcount());
+            values.put("fkosan", furniture.getFkosan());
+            values.put("fexist", furniture.getFexist());
+            values.put("fimage", furniture.getFimage());
 
-            long userID = db.insert(TABLE_furniture, null, values);
-            return userID;
+            long rownumber = db.insert(TABLE_furniture, null, values);
+
+
+            return rownumber;
         }catch (SQLException e){
             return 0;
         }
@@ -317,7 +319,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             furniture.setFcount((c.getString(c.getColumnIndex("fcount"))));
             furniture.setFkosan((c.getString(c.getColumnIndex("fkosan"))));
             furniture.setFexist((c.getString(c.getColumnIndex("fexist"))));
-            furniture.setFimageaddress((c.getString(c.getColumnIndex("fimageaddress"))));
+            furniture.setFimage((c.getString(c.getColumnIndex("fimage"))));
 
             return furniture;
         }catch (SQLException e){
@@ -353,7 +355,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     furniture.setFcount((c.getString(c.getColumnIndex("fcount"))));
                     furniture.setFkosan((c.getString(c.getColumnIndex("fkosan"))));
                     furniture.setFexist((c.getString(c.getColumnIndex("fexist"))));
-                    furniture.setFimageaddress((c.getString(c.getColumnIndex("fimageaddress"))));
+                    furniture.setFimage((c.getString(c.getColumnIndex("fimage"))));
 
                     //adding to furnitures list
                     furnitures.add(furniture);
@@ -383,7 +385,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             values.put("fcount", furniture.getFcount());
             values.put("fkosan", furniture.getFkosan());
             values.put("fexist", furniture.getFexist());
-            values.put("fimageaddress", furniture.getFimageaddress());
+            values.put("fimage", furniture.getFimage());
 
             long fid = db.update(TABLE_furniture, values, "fid = ?",
                     new String[]{String.valueOf(furniture.getFid())});

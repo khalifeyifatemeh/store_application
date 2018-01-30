@@ -18,23 +18,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 public class addfurniture_activity extends AppCompatActivity {
 
 
     private static int IMG_RESULT = 1;
-    String ImageDecode;
     ImageView imageViewLoad;
     Button LoadImage;
     Intent intent;
-    String[] FILE;
     DatabaseHelper db;
     ImageView imageview;
-    EditText editfimageaddress;
+    EditText editfimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +75,11 @@ public class addfurniture_activity extends AppCompatActivity {
         final EditText editfcount      = (EditText) findViewById(R.id.id_editText_fcount);
         final EditText editfkosan      = (EditText) findViewById(R.id.id_editText_fkosan);
         final EditText editfexist      = (EditText) findViewById(R.id.id_editText_fexist);
-        editfimageaddress      = (EditText) findViewById(R.id.id_edittex_imageaddress);
+        editfimage      = (EditText) findViewById(R.id.id_edittex_image);
         Button btnaddimage              =(Button)   findViewById(R.id.id_btn_addimage);
         Button btnaddfurniture              =(Button)   findViewById(R.id.id_btn_addfurniture);
         Button btneditfurniture         =(Button)   findViewById(R.id.id_btn_editfurniture);
         Button btndeletfurniture         =(Button)  findViewById(R.id.id_btn_deletefurniture);
-        imageview = (ImageView) findViewById(R.id.id_imageview);
 
 
         btnaddimage.setOnClickListener(new View.OnClickListener(){
@@ -87,10 +87,6 @@ public class addfurniture_activity extends AppCompatActivity {
                 /*****
                  * insert image folder address to database
                  *****/
-                intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(intent, IMG_RESULT);
-
             }
         });
 
@@ -106,15 +102,17 @@ public class addfurniture_activity extends AppCompatActivity {
                     fr.setFname(editfname.getText().toString());
                     fr.setFtype(editftype.getText().toString());
                     fr.setFprice(editfpirce.getText().toString());
-                    fr.setFcolor(editffabric.getText().toString());
+                    fr.setFcolor(editfcolor.getText().toString());
                     fr.setFwood(editfwood.getText().toString());
+                    fr.setFfabric(editffabric.getText().toString());
                     fr.setFcount(editfcount.getText().toString());
                     fr.setFkosan(editfkosan.getText().toString());
                     fr.setFexist(editfexist.getText().toString());
-                    fr.setFimageaddress(editfimageaddress.getText().toString());
+                    fr.setFimage(editfimage.getText().toString());
 
-                    db.createFurniture(fr);
-                    Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
+                    long result = db.createFurniture(fr);
+
+                    Toast.makeText(getApplicationContext(), result + "عملیات موفق", Toast.LENGTH_LONG).show();
                 } catch (SQLException e) {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
@@ -122,13 +120,35 @@ public class addfurniture_activity extends AppCompatActivity {
             }
         });
 
-        btneditfurniture.setOnClickListener(new View.OnClickListener(){
-            public void onClick (View arg0){
-                /*****
-                 * update furniture in database
-                 *****/
+//        btneditfurniture.setOnClickListener(new View.OnClickListener(){
+//            public void onClick (View arg0){
+//                /*****
+//                 * update furniture in database
+//                 *****/
+//            }
+//        });
+        Button btntest           = (Button) findViewById(R.id.id_btn_editfurniture);
+        //Button btn_furniture      = (Button) findViewById(R.id.btn_furniture);
+        //Button btn_invoice        = (Button) findViewById(R.id.btn_invoice);
+        //Button btn_ufi            = (Button) findViewById(R.id.btn_ufi);
+        //final TextView viewtest     = (TextView) findViewById(R.id.textview_test);
+        db = new DatabaseHelper(getApplicationContext());
+
+        btntest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<addfurniture> allfurnitures = db.getAllFurnitures();
+                if (allfurnitures.size() > 0) {
+                    for (addfurniture furniture : allfurnitures) {
+                        String s = furniture.getFid() + " " + furniture.getFname() + " " + furniture.getFcolor();
+                        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+
+                    }
+                }
             }
         });
+
+        db.closeDB();
 
         btndeletfurniture.setOnClickListener(new View.OnClickListener(){
             public void onClick (View arg0){
@@ -137,74 +157,8 @@ public class addfurniture_activity extends AppCompatActivity {
                  *****/
             }
         });
-    }
+        db.closeDB();
 
-///////codefor pick img from gallery
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        try {
-
-            if (requestCode == IMG_RESULT && resultCode == RESULT_OK && null != data) {
-
-
-                String realPath;
-                if (Build.VERSION.SDK_INT < 11)
-                    realPath = RealPathUtil.getRealPathFromURI_BelowAPI11(this, data.getData());
-
-                    // SDK >= 11 && SDK < 19
-                else if (Build.VERSION.SDK_INT < 19)
-                    realPath = RealPathUtil.getRealPathFromURI_API11to18(this, data.getData());
-
-                    // SDK > 19 (Android 4.4)
-                else
-                    realPath = RealPathUtil.getRealPathFromURI_API19(this, data.getData());
-
-                Uri URI = data.getData();
-                String[] FILE = {MediaStore.Images.Media.DATA};
-
-
-                Cursor cursor = getContentResolver().query(URI, FILE, null, null, null);
-
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(FILE[0]);
-                ImageDecode = cursor.getString(columnIndex);
-                cursor.close();
-
-                imageViewLoad.setImageBitmap(BitmapFactory
-                        .decodeFile(ImageDecode));
-
-            }
-        } catch (Exception e) {
-            Toast.makeText(this, "Please try again", Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-    private void setTextViews(int sdk, String uriPath,String realPath){
-
-//        this.txtSDK.setText("Build.VERSION.SDK_INT: "+sdk);
-//        this.txtUriPath.setText("URI Path: "+uriPath);
-        editfimageaddress.setText("realPath");
-        Uri uriFromPath = Uri.fromFile(new File(realPath));
-
-        // you have two ways to display selected image
-
-        // ( 1 ) imageView.setImageURI(uriFromPath);
-
-        // ( 2 ) imageView.setImageBitmap(bitmap);
-        Bitmap bitmap = null;
-        try {
-            bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uriFromPath));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        this.imageview.setImageBitmap(bitmap);
-
-        Log.d("HMKCODE", "Build.VERSION.SDK_INT:"+sdk);
-        Log.d("HMKCODE", "URI Path:"+uriPath);
-        Log.d("HMKCODE", "Real Path: "+realPath);
     }
 
 }

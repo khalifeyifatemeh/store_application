@@ -12,11 +12,11 @@ public class addfurniture {
     String fcount;
     String fkosan;
     String fexist;
-    String fimageaddress;
+    String fimage;
 
     public addfurniture(){}
 
-    public addfurniture(int fid,String fname,String ftype,String fprice,String fcolor,String ffabric,String fwood,String fcount,String fkosan,String fexist,String fimageaddress){
+    public addfurniture(int fid,String fname,String ftype,String fprice,String fcolor,String ffabric,String fwood,String fcount,String fkosan,String fexist,String fimage){
         this.fid = fid;
         this.fname = fname;
         this.ftype = ftype;
@@ -27,7 +27,7 @@ public class addfurniture {
         this.fcount = fcount;
         this.fkosan = fkosan;
         this.fexist = fexist;
-        this.fimageaddress = fimageaddress;
+        this.fimage = fimage;
     }
 
     public void setFid(int fid){
@@ -60,8 +60,8 @@ public class addfurniture {
     public void setFexist(String fexist){
         this.fexist = fexist;
     }
-    public void setFimageaddress(String fimageaddress){
-        this.fimageaddress = fimageaddress;
+    public void setFimage(String fimage){
+        this.fimage = fimage;
     }
 
     public int getFid() {
@@ -94,8 +94,8 @@ public class addfurniture {
     public String getFexist() {
         return this.fexist;
     }
-    public String getFimageaddress() {
-        return this.fimageaddress;
+    public String getFimage() {
+        return this.fimage;
     }
 
 }

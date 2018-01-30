@@ -218,29 +218,24 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_gravity="center"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="27dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="27dp"
+            android:background="@drawable/mybutton"
+            android:padding="5dp"/>
 
 
-        <ImageView
-            android:id="@+id/id_imageview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-
-            />
         <EditText
-            android:id="@+id/id_edittex_imageaddress"
-            android:layout_width="wrap_content"
+            android:id="@+id/id_edittex_image"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/id_editText_fexist"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="42dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="1dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
             android:clickable="true"
             android:ems="10"
@@ -261,15 +256,15 @@
         <Button
             android:id="@+id/id_btn_addfurniture"
             android:text="افزودن"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/id_editText_fimage"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentRight="false"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.11" />
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/mybutton"/>
 
         <Button
             android:id="@+id/id_btn_editfurniture"
@@ -280,9 +275,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
-        <Button
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/mybutton"/>
+
+                <Button
             android:id="@+id/id_btn_deletefurniture"
             android:text="حذف"
             android:layout_width="wrap_content"
@@ -293,8 +290,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="19dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="@drawable/mybutton"/>
+
             </TableRow>
 
         </TableLayout>
