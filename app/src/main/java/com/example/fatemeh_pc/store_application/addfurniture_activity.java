@@ -23,6 +23,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,8 +32,9 @@ public class addfurniture_activity extends AppCompatActivity {
     Intent intent;
     DatabaseHelper db;
     EditText editfimage;
-    String[] CodesOfFurniture = { "1","2","3","4","5"};
-
+    ArrayList<String> listff;
+    TextView show;
+    String sss;
     Spinner sp;
 
     @Override
@@ -58,25 +60,23 @@ public class addfurniture_activity extends AppCompatActivity {
         Button btndeletfurniture = (Button) findViewById(R.id.id_btn_deletefurniture);
 
 
-//        List<addfurniture> af = db.getAllFurnitures();
-//        if (af.size() > 0) {
-//            for (addfurniture furniture : af) {
-//                String s = furniture.getFid() + " " + furniture.getFname();
-//                CodesOfFurniture.add(s);
-//
-//            }
-//        }
+        final ArrayList<addfurniture> listf = (ArrayList<addfurniture>) db.getAllFurnitures();
+        listff=new ArrayList<String>();
+        for(int jj=0;jj<listf.size();jj++)
+        {
+            String s=Integer.toString(listf.get(jj).getFid());
+            listff.add(s);
+        }
         sp = (Spinner) findViewById(R.id.id_spinner_furniture);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,  android.R.layout.simple_dropdown_item_1line,CodesOfFurniture);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,listff);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adapter);
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             //5
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,int position, long id) {
-
-                Toast.makeText(addfurniture_activity.this,"U Choosed : " + CodesOfFurniture[position],Toast.LENGTH_SHORT).show();
-                String code=CodesOfFurniture[position];
+                Toast.makeText(addfurniture_activity.this,"انتخاب شما : " + listff.get(position),Toast.LENGTH_SHORT).show();
+                String code=listff.get(position);
                 int code2=(int)Integer.parseInt(code);
                 addfurniture f=new addfurniture();
                 f=db.getfurniture(code2);
@@ -123,7 +123,7 @@ public class addfurniture_activity extends AppCompatActivity {
 
                     long result = db.createFurniture(fr);
 
-                    Toast.makeText(getApplicationContext(), result + "عملیات موفق", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), result + "عملیات افزودن با موفقیت انجام شد", Toast.LENGTH_LONG).show();
                 } catch (SQLException e) {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
@@ -132,62 +132,78 @@ public class addfurniture_activity extends AppCompatActivity {
         });
 
         btneditfurniture.setOnClickListener(new View.OnClickListener(){
-            public void onClick (View arg0){
+            public void onClick (View arg0) {
                 /*****
                  * update furniture in database
                  *****/
+                try {
+                    addfurniture fr = new addfurniture();
+                    addfurniture fr1 = new addfurniture();
+                    int f_id = (int) Integer.parseInt(editfid.getText().toString());
+                    fr.setFid(f_id);
+                    fr.setFname(editfname.getText().toString());
+                    fr.setFtype(editftype.getText().toString());
+                    fr.setFprice(editfpirce.getText().toString());
+                    fr.setFcolor(editfcolor.getText().toString());
+                    fr.setFwood(editfwood.getText().toString());
+                    fr.setFfabric(editffabric.getText().toString());
+                    fr.setFcount(editfcount.getText().toString());
+                    fr.setFkosan(editfkosan.getText().toString());
+                    fr.setFexist(editfexist.getText().toString());
+                    fr.setFimage(editfimage.getText().toString());
+                    db.updatefurniture(fr);
+                    long result = fr.getFid();
+                    Toast.makeText(getApplicationContext(), result + "عملیات ویرایش با موفقیت انجام شد", Toast.LENGTH_LONG).show();
+                } catch (SQLException e) {
+                    Toast.makeText(getApplicationContext(), "عملیات ویرایش ناموفق", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
         });
-//        Button btntest = (Button) findViewById(R.id.id_btn_editfurniture);
-//
-//        db = new DatabaseHelper(getApplicationContext());
-//
-//        btntest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                List<addfurniture> allfurnitures = db.getAllFurnitures();
-//                if (allfurnitures.size() > 0) {
-//                    for (addfurniture furniture : allfurnitures) {
-//                        String s = furniture.getFid() + " " + furniture.getFname() + " " + furniture.getFcolor();
-//                        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-//
-//                    }
-//                }
-//            }
-//        });
+
 ///////////////////////////////DELETE////////////////////////////////////
         btndeletfurniture.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
+            public void onClick(View view) {
                 /*****
-                 * insert furniture to database
+                 * delete furniture from database
                  *****/
-//                try {
-//                    addfurniture fr = new addfurniture();
-//                    int fid=(int) Integer.parseInt(editfid.getText().toString());
-//                    fr.setFid(fid);
-//                    fr.setFname(editfname.getText().toString());
-//                    fr.setFtype(editftype.getText().toString());
-//                    fr.setFprice(editfpirce.getText().toString());
-//                    fr.setFcolor(editfcolor.getText().toString());
-//                    fr.setFwood(editfwood.getText().toString());
-//                    fr.setFfabric(editffabric.getText().toString());
-//                    fr.setFcount(editfcount.getText().toString());
-//                    fr.setFkosan(editfkosan.getText().toString());
-//                    fr.setFexist(editfexist.getText().toString());
-//                    fr.setFimage(editfimage.getText().toString());
-//
-//                    long result = db.createFurniture(fr);
-//
-//                    Toast.makeText(getApplicationContext(), result + "عملیات موفق", Toast.LENGTH_LONG).show();
-//                } catch (SQLException e) {
-//                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-//                }
+                try {
+                    int fid = (int) Integer.parseInt(editfid.getText().toString());
+                    db.deleteFurniture(fid);
+
+                    Toast.makeText(getApplicationContext(), "عملیات حذف با موفقیت انجام شد", Toast.LENGTH_LONG).show();
+                } catch (SQLException e) {
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
 
             }
         });
-        db.closeDB();
 
-    }
+
+
+                show=(TextView)findViewById(R.id.id_textview);
+                sss="";
+                Button btn_showfurnitures = (Button) findViewById(R.id.id_btn_showfurnitures);
+                db = new DatabaseHelper(getApplicationContext());
+                btn_showfurnitures.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        List<addfurniture> allfurnitures = db.getAllFurnitures();
+                        if (allfurnitures.size() > 0) {
+                            for (addfurniture furniture : allfurnitures) {
+                                String s = furniture.getFid() + " " + furniture.getFname() + " " + furniture.getFcolor();
+                                sss=s+"/n";
+                                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                                show.setText(sss);
+
+
+
+                            }
+                        }
+                    }
+                });
+
+                db.closeDB();
+        }
 
 }
-

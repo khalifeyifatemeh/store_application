@@ -95,11 +95,12 @@ public class MainActivity extends AppCompatActivity {
             this.startActivity(intent);
             return true;
         }
-        if (id == R.id.id_vizheh) {
-            Intent intent = new Intent(this, vizheh_activity.class);
-            this.startActivity(intent);
-            return true;
-        }
+//        if (id == R.id.id_vizheh) {
+//            Intent intent = new Intent(this, vizheh_activity.class);
+//            this.startActivity(intent);
+//            return true;
+//
+//     }
         if (id == R.id.id_soal) {
             Intent intent = new Intent(this, soal_activity.class);
             this.startActivity(intent);

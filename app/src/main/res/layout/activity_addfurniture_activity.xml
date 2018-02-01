@@ -209,7 +209,7 @@
             android:inputType="text"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="موجود ناموجود"
+            android:hint="آدرس عکس"
             android:padding="8dp"
             android:ems="10"
             android:layout_marginTop="14dp"
@@ -270,9 +270,34 @@
             android:layout_marginRight="3dp"
             android:background="@drawable/mybutton"/>
 
+            <Button
+                android:id="@+id/id_btn_showfurnitures"
+                android:text="لیست مبل ها"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="false"
+                android:layout_below="@+id/id_editText_fimage"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/mybutton"/>
+
             </TableRow>
 
         </TableLayout>
+
+        <TextView
+            android:id="@+id/id_textview"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor="@color/black"
+            android:background="@color/pink"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"/>
+
 
 
 

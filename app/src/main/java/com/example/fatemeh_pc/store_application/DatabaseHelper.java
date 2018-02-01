@@ -376,6 +376,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
+            values.put("fid",furniture.getFid());
             values.put("fname", furniture.getFname());
             values.put("ftype", furniture.getFtype());
             values.put("fprice", furniture.getFprice());
@@ -386,13 +387,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             values.put("fkosan", furniture.getFkosan());
             values.put("fexist", furniture.getFexist());
             values.put("fimage", furniture.getFimage());
-
-            long fid = db.update(TABLE_furniture, values, "fid = ?",
-                    new String[]{String.valueOf(furniture.getFid())});
+            return db.update(TABLE_furniture, values,  "fid"+ " = ?" ,new String[] {String.valueOf(furniture.getFid())});
             // updating row
-            return fid;
         }catch (SQLException e){
-            return 0;
+
+            return 20;
         }
     }
 
