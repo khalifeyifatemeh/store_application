@@ -56,7 +56,7 @@
             android:parentActivityName=".vorud_activity" />
         <activity
             android:name=".addfurniture_activity"
-            android:label="افزودن مبل" />
+            android:label="مدیریت محصول" />
         <activity
             android:name=".product_activity"
             android:label="مبل پلاس" />

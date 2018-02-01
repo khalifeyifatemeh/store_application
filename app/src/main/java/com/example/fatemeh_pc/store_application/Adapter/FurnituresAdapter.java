@@ -1,4 +1,5 @@
 package com.example.fatemeh_pc.store_application.Adapter;
+import android.app.Application;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.F
 
     List<FURNITURE> furnitures;
 
-    public FurnituresAdapter(List<FURNITURE> furnitures) {
+    public FurnituresAdapter(List<FURNITURE> furnitures, Application application) {
         this.furnitures = furnitures;
     }
 

@@ -15,6 +15,9 @@ public class FURNITURE {
         this.imgid=imgid;
     }
 
+    public FURNITURE() {
+    }
+
     public String getTitle() {
         return title;
     }

@@ -10,8 +10,12 @@ import android.hardware.SensorAdditionalInfo;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.fatemeh_pc.store_application.Model.FURNITURE;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.type;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
@@ -367,6 +371,48 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
     }
 
+    public ArrayList<addfurniture> getfurnitureWithType(String ftype){
+        try {
+            ArrayList<addfurniture> furnitures = new ArrayList<addfurniture>();
+            String selectQuery = "SELECT * FROM furniture WHERE ftype = '"  + ftype + "'";
+            Log.e(LOG, selectQuery);
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor c = db.rawQuery(selectQuery, null);
+
+            // looping through all rows and adding to furniture list
+            if (c.moveToFirst()) {
+                do {
+                    addfurniture furniture = new addfurniture();
+                    furniture.setFid(c.getInt(c.getColumnIndex("fid")));
+                    furniture.setFname((c.getString(c.getColumnIndex("fname"))));
+                    furniture.setFtype((c.getString(c.getColumnIndex("ftype"))));
+                    furniture.setFprice((c.getString(c.getColumnIndex("fprice"))));
+                    furniture.setFcolor((c.getString(c.getColumnIndex("fcolor"))));
+                    furniture.setFfabric((c.getString(c.getColumnIndex("ffabric"))));
+                    furniture.setFwood((c.getString(c.getColumnIndex("fwood"))));
+                    furniture.setFcount((c.getString(c.getColumnIndex("fcount"))));
+                    furniture.setFkosan((c.getString(c.getColumnIndex("fkosan"))));
+                    furniture.setFexist((c.getString(c.getColumnIndex("fexist"))));
+                    furniture.setFimage((c.getString(c.getColumnIndex("fimage"))));
+
+                    //adding to furnitures list
+                    furnitures.add(furniture);
+                } while (c.moveToNext());
+            }
+            return furnitures;
+        }catch (SQLException e){
+            return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
     /**
      * @intro update single furniture
      * @param furniture
@@ -655,5 +701,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
-
+    public static class getReadableDatabase {
+    }
 }
