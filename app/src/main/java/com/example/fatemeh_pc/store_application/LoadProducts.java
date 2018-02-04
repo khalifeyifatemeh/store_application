@@ -28,7 +28,7 @@ public class LoadProducts extends AppCompatActivity {
     List<FURNITURE> Furnitures;
     public  static ArrayList<addfurniture> furnitures;
     public FURNITURE f;
-
+    public ArrayList<Integer> images=new ArrayList<Integer>();
 
 
 
@@ -36,6 +36,16 @@ public class LoadProducts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_products);
+
+
+        images.add(R.drawable._1_);
+        images.add(R.drawable._2_);
+        images.add(R.drawable._3_);
+        images.add(R.drawable._4_);
+        images.add(R.drawable._5_);
+        images.add(R.drawable._6_);
+        images.add(R.drawable._7_);
+        images.add(R.drawable._8_);
 
         ImageView img=(ImageView)findViewById(R.id.imageView);
 
@@ -65,9 +75,10 @@ public class LoadProducts extends AppCompatActivity {
             {
                 f =new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setPrice(furnitures.get(i).fprice);
+                f.setId(furnitures.get(i).fprice);
                 //f.setImgid(furnitures.get(i).fid);
-                f.setImgid(R.drawable.ic_comfort);
+                int n=furnitures.get(i).fid;
+                f.setImgid(R.drawable._1_);
 
                 Furnitures.add(f);
             }
@@ -102,9 +113,10 @@ public class LoadProducts extends AppCompatActivity {
             {
                 f =new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setPrice(furnitures.get(i).fprice);
-                //f.setImgid(furnitures.get(i).fid);
-                f.setImgid(R.drawable.ic_comfort);
+                f.setId(furnitures.get(i).fprice);
+                int n=furnitures.get(i).fid;
+                f.setImgid(R.drawable._7_);
+
 
                 Furnitures.add(f);
             }
@@ -139,10 +151,9 @@ public class LoadProducts extends AppCompatActivity {
             {
                 f =new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setPrice(furnitures.get(i).fprice);
-                //f.setImgid(furnitures.get(i).fid);
-                f.setImgid(R.drawable.ic_comfort);
-
+                f.setId(furnitures.get(i).fprice);
+                int n=furnitures.get(i).fid;
+                f.setImgid(R.drawable._8_);
                 Furnitures.add(f);
             }
             Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();

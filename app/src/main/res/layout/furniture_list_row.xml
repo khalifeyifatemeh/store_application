@@ -11,6 +11,7 @@
 
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/id_rltv"
             android:orientation="vertical"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
@@ -24,8 +25,7 @@
                 android:layout_height="80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                android:src="@drawable/_1_"/>
+                android:layout_marginRight="16dp" />
 
             <TextView
                 android:id="@+id/id_txt1"

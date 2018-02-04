@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.fatemeh_pc.store_application.product_profile">
 
+    <ImageView
+        android:id="@+id/id_imgview_profile"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"/>
+    <TextView
+        android:id="@+id/id_txtname"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_imgview_profile"/>
+    <TextView
+        android:id="@+id/id_txtcode"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtname"/>
+    <TextView
+        android:id="@+id/id_txttype"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtcode"/>
+    <TextView
+        android:id="@+id/id_txtprice"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/id_txttype"/>
+    <TextView
+        android:id="@+id/id_txtcolor"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtprice"/>
+    <TextView
+        android:id="@+id/id_txtfabric"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtcolor"/>
+    <TextView
+        android:id="@+id/id_txtwood"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/id_txtfabric"/>
+    <TextView
+        android:id="@+id/id_txtcount"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtwood"/>
+    <TextView
+        android:id="@+id/id_txtkosan"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtcount"/>
+    <TextView
+        android:id="@+id/id_txtexixt"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/id_txtkosan"/>
+    <Button
+        android:id="@+id/id_btn_addtobasket"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="افزودن به سبد خرید"
+        android:layout_below="@+id/id_txtexixt"
+        android:background="@drawable/mybutton"/>
 
 
 
-    
-</android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

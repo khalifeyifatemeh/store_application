@@ -6,12 +6,12 @@ package com.example.fatemeh_pc.store_application.Model;
 
 public class FURNITURE {
     String title;
-    String price;
+    String id;
     int imgid;
 
-    public FURNITURE(String title, String price, int imgid) {
+    public FURNITURE(String title, String id, int imgid) {
         this.title = title;
-        this.price = price;
+        this.id = id;
         this.imgid=imgid;
     }
 
@@ -26,12 +26,12 @@ public class FURNITURE {
         this.title = title;
     }
 
-    public String getPrice() {
-        return price;
+    public String getId() {
+        return id;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getImgid() {
