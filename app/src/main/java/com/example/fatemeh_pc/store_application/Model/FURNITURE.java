@@ -1,5 +1,8 @@
 package com.example.fatemeh_pc.store_application.Model;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 /**
  * Created by FATEMEH-PC on 1/30/2018.
  */
@@ -7,7 +10,7 @@ package com.example.fatemeh_pc.store_application.Model;
 public class FURNITURE {
     String title;
     String price;
-    int imgid;
+    int  imgid;
 
     public FURNITURE(String title, String price, int imgid) {
         this.title = title;

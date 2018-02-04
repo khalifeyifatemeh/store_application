@@ -21,14 +21,11 @@ public class LoadProducts extends AppCompatActivity {
 
     DatabaseHelper db;
     public RecyclerView recyclerView;
-    LinearLayoutManager layoutManager;
+    public LinearLayoutManager layoutManager;
     public FurnituresAdapter adapter;
-    ArrayList<FURNITURE> arraylist;
-    public static List<addfurniture> addfurnitures;///use for database
-    List<FURNITURE> Furnitures;
-    public  static ArrayList<addfurniture> furnitures;
-    public FURNITURE f;
-
+    public List<FURNITURE> Furnitures_recycle_list;
+    public static ArrayList<addfurniture> furnitures;
+    public FURNITURE furniture_in_recycle;
 
 
 
@@ -36,53 +33,56 @@ public class LoadProducts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_products);
-
-        ImageView img=(ImageView)findViewById(R.id.imageView);
-
+//        ImageView img=(ImageView)findViewById(R.id.imageView);
         db = new DatabaseHelper(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(LoadProducts.this);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+
+
 
         if (MainActivity.comfort) {
             try {
-                furnitures = new ArrayList<>();
+                furnitures = new ArrayList<addfurniture>();
                 addfurniture fr = new addfurniture();
                 db.getfurnitureWithType("comfort");
                 furnitures = db.getfurnitureWithType("comfort");
-                //long result = fr.getFid();
-                Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
-                int n = furnitures.size();
-//                       if(furnitures.size()>0)
-//                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
+
+                if (furnitures != null)
+                    Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
+                else {
+                    Toast.makeText(getApplicationContext(), "عملیات نا موفق", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                Furnitures_recycle_list = new ArrayList<FURNITURE>();
+                for(int i=0;i<furnitures.size();i++)
+                {
+                    furniture_in_recycle = new FURNITURE();
+                    furniture_in_recycle.setTitle(furnitures.get(i).fname);
+                    furniture_in_recycle.setPrice(furnitures.get(i).fprice);
+                    furniture_in_recycle.setImgid(R.drawable.ic_comfort);
+                    Furnitures_recycle_list.add(furniture_in_recycle);
+                }
+
+//                Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
+//                adapter = new FurnituresAdapter(Furnitures_recycle_list, getApplication());
+//                recyclerView.setAdapter(adapter);
+
+                recyclerView.setLayoutManager(layoutManager);
+                adapter = new FurnituresAdapter(Furnitures_recycle_list, getApplication());
+                recyclerView.setAdapter(adapter);
+
 
             } catch (SQLException e) {
-                Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
-                //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
+
             }
-
-            Furnitures = new ArrayList<>();
-            for(int i=0;i<furnitures.size();i++)
-            {
-                f =new FURNITURE();
-                f.setTitle(furnitures.get(i).fname);
-                f.setPrice(furnitures.get(i).fprice);
-                //f.setImgid(furnitures.get(i).fid);
-                f.setImgid(R.drawable.ic_comfort);
-
-                Furnitures.add(f);
-            }
-            Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
-
-            adapter=new FurnituresAdapter(Furnitures,getApplication());
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-       }
-
-
+        }
         db.closeDB();
-
     }
 
 

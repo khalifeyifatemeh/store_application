@@ -192,7 +192,7 @@ public class addfurniture_activity extends AppCompatActivity {
                         if (allfurnitures.size() > 0) {
                             for (addfurniture furniture : allfurnitures) {
                                 String s = furniture.getFid() + " " + furniture.getFname() + " " + furniture.getFcolor();
-                                sss=s+"/n";
+                                sss+=s+"  -  ";
                                 //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                                 show.setText(sss);
 

@@ -68,21 +68,6 @@ public class MainActivity extends AppCompatActivity {
                public void onClick(View v) {
 
                    comfort=true;
-//                   try {
-//                       furnitures = new ArrayList<>();
-//                       addfurniture fr = new addfurniture();
-//                       db.getfurnitureWithType("comfort");
-//                       furnitures = db.getfurnitureWithType("comfort");
-//                       //long result = fr.getFid();
-//                       Toast.makeText(getApplicationContext(),  "عملیات موفق", Toast.LENGTH_LONG).show();
-//                       int n=furnitures.size();
-////                       if(furnitures.size()>0)
-////                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
-//
-//                   } catch (SQLException e) {
-//                       Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
-//                       //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-//                   }
                    Intent next = new Intent(MainActivity.this, LoadProducts.class);
                    startActivity(next);
                }

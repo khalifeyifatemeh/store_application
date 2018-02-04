@@ -27,10 +27,6 @@ public class test_of_db extends AppCompatActivity {
         setContentView(R.layout.activity_test_of_db);
 
         Button btn_user             = (Button) findViewById(R.id.btn_user);
-        //Button btn_furniture      = (Button) findViewById(R.id.btn_furniture);
-        //Button btn_invoice        = (Button) findViewById(R.id.btn_invoice);
-        //Button btn_ufi            = (Button) findViewById(R.id.btn_ufi);
-        final TextView viewtest     = (TextView) findViewById(R.id.textview_test);
         db = new DatabaseHelper(getApplicationContext());
 
         btn_user.setOnClickListener(new OnClickListener() {

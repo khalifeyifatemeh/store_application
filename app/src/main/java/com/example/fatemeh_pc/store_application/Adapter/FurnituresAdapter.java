@@ -37,8 +37,7 @@ public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.F
         FURNITURE furn=furnitures.get(position);
         holder.txt_title.setText(furn.getTitle());
         holder.txt_price.setText(furn.getPrice());
-
-
+        holder.imageview.setImageResource(furn.getImgid());
     }
 
     @Override

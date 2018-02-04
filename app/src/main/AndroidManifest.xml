@@ -62,8 +62,8 @@
             android:label="مبل پلاس" />
         <activity
             android:name=".test_of_db"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".LoadProducts"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".LoadProducts" />
     </application>
 
 </manifest>
