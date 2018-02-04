@@ -171,11 +171,11 @@ public class MainActivity extends AppCompatActivity {
             this.startActivity(intent);
             return true;
         }
-        if (id == R.id.id_sabad2) {
-            Intent intent = new Intent(this, sabad_activity.class);
-            this.startActivity(intent);
-            return true;
-        }
+//        if (id == R.id.id_sabad2) {
+//            Intent intent = new Intent(this, sabad_activity.class);
+//            this.startActivity(intent);
+//            return true;
+//        }
         if (id == R.id.id_logout) {
             Intent intent = new Intent(this, sabad_activity.class);
             this.startActivity(intent);

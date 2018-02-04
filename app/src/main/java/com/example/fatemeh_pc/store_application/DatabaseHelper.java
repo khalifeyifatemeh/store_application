@@ -406,6 +406,43 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+    public ArrayList<addfurniture> getfurnitureWithname(String fname){
+        try {
+            ArrayList<addfurniture> furnitures = new ArrayList<addfurniture>();
+            String selectQuery = "SELECT * FROM furniture WHERE fname = '"  + fname + "'";
+            Log.e(LOG, selectQuery);
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor c = db.rawQuery(selectQuery, null);
+
+            // looping through all rows and adding to furniture list
+            if (c.moveToFirst()) {
+                do {
+                    addfurniture furniture = new addfurniture();
+                    furniture.setFid(c.getInt(c.getColumnIndex("fid")));
+                    furniture.setFname((c.getString(c.getColumnIndex("fname"))));
+                    furniture.setFtype((c.getString(c.getColumnIndex("ftype"))));
+                    furniture.setFprice((c.getString(c.getColumnIndex("fprice"))));
+                    furniture.setFcolor((c.getString(c.getColumnIndex("fcolor"))));
+                    furniture.setFfabric((c.getString(c.getColumnIndex("ffabric"))));
+                    furniture.setFwood((c.getString(c.getColumnIndex("fwood"))));
+                    furniture.setFcount((c.getString(c.getColumnIndex("fcount"))));
+                    furniture.setFkosan((c.getString(c.getColumnIndex("fkosan"))));
+                    furniture.setFexist((c.getString(c.getColumnIndex("fexist"))));
+                    furniture.setFimage((c.getString(c.getColumnIndex("fimage"))));
+
+                    //adding to furnitures list
+                    furnitures.add(furniture);
+                } while (c.moveToNext());
+            }
+            return furnitures;
+        }catch (SQLException e){
+            return null;
+        }
+    }
+
+
+
+
 
 
 

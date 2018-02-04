@@ -26,6 +26,7 @@ public class LoadProducts extends AppCompatActivity {
     List<FURNITURE> Furnitures;
     public static ArrayList<addfurniture> furnitures;
     public FURNITURE f;
+    String s;
     //public ArrayList<Integer> images = new ArrayList<Integer>();
 
 
@@ -146,6 +147,38 @@ public class LoadProducts extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
+        }
+
+
+        else if(search_activity.searchflag)
+        {
+
+            try {
+                furnitures = new ArrayList<>();
+                addfurniture fr = new addfurniture();
+                db.getfurnitureWithname(search_activity.search_text);
+                furnitures = db.getfurnitureWithname(search_activity.search_text);
+                Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
+                int n = furnitures.size();
+
+            } catch (SQLException e) {
+                Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            }
+
+            Furnitures = new ArrayList<>();
+            for (int i = 0; i < furnitures.size(); i++) {
+                f = new FURNITURE();
+                f.setTitle(furnitures.get(i).fname);
+                f.setId(furnitures.get(i).fid);
+                int n = furnitures.get(i).fid;
+                f.setImgid(R.drawable._1_);
+                Furnitures.add(f);
+            }
+            Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
+            adapter = new FurnituresAdapter(Furnitures, getApplication());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }
 
         db.closeDB();
