@@ -77,9 +77,82 @@ public class LoadProducts extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
        }
 
+       else if(MainActivity.royal)
+        {
+            try {
+                furnitures = new ArrayList<>();
+                addfurniture fr = new addfurniture();
+                db.getfurnitureWithType("royal");
+                furnitures = db.getfurnitureWithType("royal");
+                //long result = fr.getFid();
+                Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
+                int n = furnitures.size();
+//                       if(furnitures.size()>0)
+//                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
+
+            } catch (SQLException e) {
+                Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            }
+
+            Furnitures = new ArrayList<>();
+            for(int i=0;i<furnitures.size();i++)
+            {
+                f =new FURNITURE();
+                f.setTitle(furnitures.get(i).fname);
+                f.setPrice(furnitures.get(i).fprice);
+                //f.setImgid(furnitures.get(i).fid);
+                f.setImgid(R.drawable.ic_comfort);
+
+                Furnitures.add(f);
+            }
+            Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
+
+            adapter=new FurnituresAdapter(Furnitures,getApplication());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
+
+
+        else if(MainActivity.buff)
+        {
+            try {
+                furnitures = new ArrayList<>();
+                addfurniture fr = new addfurniture();
+                db.getfurnitureWithType("buff");
+                furnitures = db.getfurnitureWithType("buff");
+                //long result = fr.getFid();
+                Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
+                int n = furnitures.size();
+//                       if(furnitures.size()>0)
+//                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
+
+            } catch (SQLException e) {
+                Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            }
+
+            Furnitures = new ArrayList<>();
+            for(int i=0;i<furnitures.size();i++)
+            {
+                f =new FURNITURE();
+                f.setTitle(furnitures.get(i).fname);
+                f.setPrice(furnitures.get(i).fprice);
+                //f.setImgid(furnitures.get(i).fid);
+                f.setImgid(R.drawable.ic_comfort);
+
+                Furnitures.add(f);
+            }
+            Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
+
+            adapter=new FurnituresAdapter(Furnitures,getApplication());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        }
 
         db.closeDB();
 

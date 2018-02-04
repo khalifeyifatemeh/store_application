@@ -24,7 +24,8 @@
                 android:layout_height="80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                android:src="@drawable/_1_"/>
 
             <TextView
                 android:id="@+id/id_txt1"
