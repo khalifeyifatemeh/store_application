@@ -10,10 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.example.fatemeh_pc.store_application.Adapter.FurnituresAdapter;
 import com.example.fatemeh_pc.store_application.Model.FURNITURE;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +21,12 @@ public class LoadProducts extends AppCompatActivity {
     public RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     public FurnituresAdapter adapter;
-    ArrayList<FURNITURE> arraylist;
+    //ArrayList<FURNITURE> arraylist;
     public static List<addfurniture> addfurnitures;///use for database
     List<FURNITURE> Furnitures;
-    public  static ArrayList<addfurniture> furnitures;
+    public static ArrayList<addfurniture> furnitures;
     public FURNITURE f;
-    public ArrayList<Integer> images=new ArrayList<Integer>();
-
+    //public ArrayList<Integer> images = new ArrayList<Integer>();
 
 
     @Override
@@ -38,16 +35,16 @@ public class LoadProducts extends AppCompatActivity {
         setContentView(R.layout.activity_load_products);
 
 
-        images.add(R.drawable._1_);
-        images.add(R.drawable._2_);
-        images.add(R.drawable._3_);
-        images.add(R.drawable._4_);
-        images.add(R.drawable._5_);
-        images.add(R.drawable._6_);
-        images.add(R.drawable._7_);
-        images.add(R.drawable._8_);
+//        images.add(R.drawable._1_);
+//        images.add(R.drawable._2_);
+//        images.add(R.drawable._3_);
+//        images.add(R.drawable._4_);
+//        images.add(R.drawable._5_);
+//        images.add(R.drawable._6_);
+//        images.add(R.drawable._7_);
+//        images.add(R.drawable._8_);
 
-        ImageView img=(ImageView)findViewById(R.id.imageView);
+        ImageView img = (ImageView) findViewById(R.id.imageView);
 
         db = new DatabaseHelper(getApplicationContext());
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -62,8 +59,6 @@ public class LoadProducts extends AppCompatActivity {
                 //long result = fr.getFid();
                 Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
                 int n = furnitures.size();
-//                       if(furnitures.size()>0)
-//                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
 
             } catch (SQLException e) {
                 Toast.makeText(getApplicationContext(), "عملیات ناموفق", Toast.LENGTH_LONG).show();
@@ -71,27 +66,22 @@ public class LoadProducts extends AppCompatActivity {
             }
 
             Furnitures = new ArrayList<>();
-            for(int i=0;i<furnitures.size();i++)
-            {
-                f =new FURNITURE();
+            for (int i = 0; i < furnitures.size(); i++) {
+                f = new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setId(furnitures.get(i).fprice);
-                //f.setImgid(furnitures.get(i).fid);
-                int n=furnitures.get(i).fid;
+                f.setId(furnitures.get(i).fid);
+                int n = furnitures.get(i).fid;
                 f.setImgid(R.drawable._1_);
 
                 Furnitures.add(f);
             }
             Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
 
-            adapter=new FurnituresAdapter(Furnitures,getApplication());
+            adapter = new FurnituresAdapter(Furnitures, getApplication());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-       }
-
-       else if(MainActivity.royal)
-        {
+        } else if (MainActivity.royal) {
             try {
                 furnitures = new ArrayList<>();
                 addfurniture fr = new addfurniture();
@@ -109,12 +99,11 @@ public class LoadProducts extends AppCompatActivity {
             }
 
             Furnitures = new ArrayList<>();
-            for(int i=0;i<furnitures.size();i++)
-            {
-                f =new FURNITURE();
+            for (int i = 0; i < furnitures.size(); i++) {
+                f = new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setId(furnitures.get(i).fprice);
-                int n=furnitures.get(i).fid;
+                f.setId(furnitures.get(i).fid);
+                int n = furnitures.get(i).fid;
                 f.setImgid(R.drawable._7_);
 
 
@@ -122,23 +111,17 @@ public class LoadProducts extends AppCompatActivity {
             }
             Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
 
-            adapter=new FurnituresAdapter(Furnitures,getApplication());
+            adapter = new FurnituresAdapter(Furnitures, getApplication());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        }
-
-
-        else if(MainActivity.buff)
-        {
+        } else if (MainActivity.buff) {
             try {
                 furnitures = new ArrayList<>();
                 addfurniture fr = new addfurniture();
                 db.getfurnitureWithType("buff");
                 furnitures = db.getfurnitureWithType("buff");
-                //long result = fr.getFid();
                 Toast.makeText(getApplicationContext(), "عملیات موفق", Toast.LENGTH_LONG).show();
                 int n = furnitures.size();
-//                       if(furnitures.size()>0)
 //                       Toast.makeText(getApplicationContext(),n + " نال نیست" , Toast.LENGTH_LONG).show();
 
             } catch (SQLException e) {
@@ -147,18 +130,18 @@ public class LoadProducts extends AppCompatActivity {
             }
 
             Furnitures = new ArrayList<>();
-            for(int i=0;i<furnitures.size();i++)
-            {
-                f =new FURNITURE();
+            for (int i = 0; i < furnitures.size(); i++) {
+                f = new FURNITURE();
                 f.setTitle(furnitures.get(i).fname);
-                f.setId(furnitures.get(i).fprice);
-                int n=furnitures.get(i).fid;
+                f.setTitle(furnitures.get(i).fname);
+                f.setId(furnitures.get(i).fid);
+                int n = furnitures.get(i).fid;
                 f.setImgid(R.drawable._8_);
                 Furnitures.add(f);
             }
             Toast.makeText(getApplicationContext(), "بیرون فور", Toast.LENGTH_LONG).show();
 
-            adapter=new FurnituresAdapter(Furnitures,getApplication());
+            adapter = new FurnituresAdapter(Furnitures, getApplication());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -170,23 +153,4 @@ public class LoadProducts extends AppCompatActivity {
     }
 
 
-
-//    private void setListValues(int n, ArrayList<addfurniture> adfff){
-//        arraylist = new ArrayList<FURNITURE>();
-//        for(int i=0;i<n;i++) {
-//            String s=adfff.get(i).getFname();
-//            String p=adfff.get(i).getFprice();
-//            String x=adfff.get(i).getFimage();
-//            int xx=Integer.parseInt(adfff.get(i).fimage);
-//            FURNITURE fff=new FURNITURE(s,p,(Integer.parseInt(x)));
-//            arraylist.add(fff);
-//            arraylist.add(new FURNITURE(s,p,xx));
-//        }
-//        adapter = new FurnituresAdapter(Furnitures);
-//        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        linearLayoutManager.setOrientation(LinearLayout.VERTICAL);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.setAdapter(adapter);
-//
-//    }
 }

@@ -52,7 +52,7 @@ public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.F
 {
     Context mcontex;
     List<FURNITURE> furnitures;
-    public static  String furniture_Id;
+    public static int furniture_Id;
 
     public FurnituresAdapter(List<FURNITURE> furnitures, Context mcontex) {
         this.furnitures = furnitures;
@@ -75,13 +75,17 @@ public class FurnituresAdapter extends  RecyclerView.Adapter<FurnituresAdapter.F
     public void onBindViewHolder(FurnitureViewHolder holder, final int position) {
         final FURNITURE furn=furnitures.get(position);
         holder.txt_title.setText(furn.getTitle());
-        holder.txt_Id.setText(furn.getId());
+        int n=furn.getId();
+        String s=Integer.toString(n);
+        holder.txt_Id.setText(s);
         holder.imageview.setImageResource(furn.getImgid());
 
         holder.relative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                int n=furn.getId();
+                String s=Integer.toString(n);
                 furniture_Id=furn.getId();
                 Toast.makeText(mcontex,position+"",Toast.LENGTH_LONG).show();
                 final Intent next = new Intent(mcontex, product_profile.class);

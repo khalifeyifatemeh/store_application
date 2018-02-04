@@ -6,10 +6,10 @@ package com.example.fatemeh_pc.store_application.Model;
 
 public class FURNITURE {
     String title;
-    String id;
+    int id;
     int imgid;
 
-    public FURNITURE(String title, String id, int imgid) {
+    public FURNITURE(String title, int id, int imgid) {
         this.title = title;
         this.id = id;
         this.imgid=imgid;
@@ -26,11 +26,11 @@ public class FURNITURE {
         this.title = title;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
